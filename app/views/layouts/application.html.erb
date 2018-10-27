@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TravelJournal</title>
+  <title>Travel Journal</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="topnav">
+    <a class="<%= 'active' if current_page?(root_url) %>" href="/">Dashboard</a>
+    <a class="<%= 'active' if current_page?(new_travel_url) %>" href="/travels/new">Nova Viagem</a>
+  </div>
 
 <%= yield %>
 
