@@ -31,7 +31,7 @@ function nextPrev(n) {
     // if you have reached the end of the form... :
     if (currentTab >= x.length) {
         //...the form gets submitted:
-        document.getElementsByClassName("form_with_steps").submit();
+        document.getElementsByClassName("form_with_steps")[0].submit();
         return false;
     }
     // Otherwise, display the correct tab:
