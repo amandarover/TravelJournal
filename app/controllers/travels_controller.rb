@@ -12,8 +12,13 @@ class TravelsController < ApplicationController
   def create
     byebug
     @travel = Travel.new(travel_params)
-    @travel.save
-    redirect_to travel_path(@travel.id)
+
+    if @travel.save
+      redirect_to travel_path(@travel.id)
+    else
+      redirect_to new_travel_path
+      # TODO: print error message
+    end
   end
 
   def show
