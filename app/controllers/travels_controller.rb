@@ -2,6 +2,10 @@
 class TravelsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  def index
+    @travels = Travel.all
+  end
+
   def new
   end
 

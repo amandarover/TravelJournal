@@ -9,6 +9,7 @@
   <div class="topnav">
     <a class="<%= 'active' if current_page?(root_url) %>" href="/">Dashboard</a>
     <a class="<%= 'active' if current_page?(new_travel_url) %>" href="/travels/new">Nova Viagem</a>
+    <a class="<%= 'active' if current_page?(travels_url) %>" href="/travels">Lista de Viagens</a>
   </div>
 
 <%= yield %>
