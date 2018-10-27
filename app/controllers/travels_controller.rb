@@ -6,12 +6,23 @@ class TravelsController < ApplicationController
   end
 
   def create
-    @travel = Travel.new(params[:travel].permit(:name,
-                                                :destination,
-                                                :init_date,
-                                                :final_date,
-                                                :description))
+    byebug
+    @travel = Travel.new(travel_params)
     @travel.save
-    redirect_to dashboard_index_path
+    redirect_to travel_path(@travel.id)
+  end
+
+  def show
+    @travel = Travel.find params[:id]
+  end
+
+  private
+
+  def travel_params
+    params.require(:travel).permit(:name,
+                                   :destination,
+                                   :init_date,
+                                   :final_date,
+                                   :description)
   end
 end
