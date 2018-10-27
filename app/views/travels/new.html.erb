@@ -3,7 +3,7 @@
     <form id="new_travel" class="form_with_steps" action="/travels" accept-charset="UTF-8" method="post">
       <h1>Criar nova Viagem:</h1>
 
-      <% if @travel.errors %>
+      <% if @travel.errors.any? %>
         <div id="error_explanation">
           <h2>
             Ops! Tivemos <%= pluralize(@travel.errors.count, "erro") %>.
@@ -27,9 +27,9 @@
       <div class="tab">
         <h3>Quando pretende viajar?</h3>
         <p><label>Data de ínicio</label></p>
-          <input id="travel_init_date" type="text" name="travel[init_date]" placeholder="dia/mes/ano" oninput="this.className = ''">
+          <input id="travel_init_date" type="date" name="travel[init_date]" placeholder="dia/mes/ano" oninput="this.className = ''">
         <p><label>Data final</label></p>
-          <input id="travel_final_date" type="text" name="travel[final_date]" placeholder="dia/mes/ano" oninput="this.className = ''">
+          <input id="travel_final_date" type="date" name="travel[final_date]" placeholder="dia/mes/ano" oninput="this.className = ''">
       </div>
 
       <div class="tab">
