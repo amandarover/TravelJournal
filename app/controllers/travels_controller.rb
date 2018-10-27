@@ -7,17 +7,19 @@ class TravelsController < ApplicationController
   end
 
   def new
+    @travel = Travel.new
   end
 
   def create
-    byebug
     @travel = Travel.new(travel_params)
 
     if @travel.save
       redirect_to travel_path(@travel.id)
     else
-      redirect_to new_travel_path
-      # TODO: print error message
+      render new_travel_path
+      logger.info(
+        ">>>>>>CONTROLLER: Error to save travel with params: '#{travel_params}'"
+      )
     end
   end
 

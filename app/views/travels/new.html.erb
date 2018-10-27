@@ -3,6 +3,20 @@
     <form id="new_travel" class="form_with_steps" action="/travels" accept-charset="UTF-8" method="post">
       <h1>Criar nova Viagem:</h1>
 
+      <% if @travel.errors %>
+        <div id="error_explanation">
+          <h2>
+            Ops! Tivemos <%= pluralize(@travel.errors.count, "erro") %>.
+            Verifique os valores inseridos e tente novamente.
+          </h2>
+          <ul>
+            <% @travel.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <div class="tab">
         <p><label>Nome da viagem</label></p>
           <input id="travel_title" type="text" name="travel[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">

@@ -1,3 +1,4 @@
+# Travel model
 class Travel < ActiveRecord::Base
   validates :name, presence: true
   validates :destination, presence: true
