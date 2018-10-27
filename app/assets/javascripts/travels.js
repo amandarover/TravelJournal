@@ -64,11 +64,3 @@ function fixStepIndicator(n) {
     //... and adds the "active" class to the current step:
     steps[n].className += " active";
 }
-
-function wait(ms) {
-  var start = new Date().getTime();
-  var end = start;
-  while (end < start + ms) {
-    end = new Date().getTime();
-  }
-}
