@@ -24,7 +24,13 @@
 </p>
 
 <h2>Dias</h2>
-<td><%= link_to 'Create', new_travel_day_path(@travel.id) %></td>
+<form id="new_travel" action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="get">
+  <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
+  <input name="add_on_last_day" value="true" style="display: none;">
+  <%# <input type="submit" value="Criar"> %>
+<td><input type="submit" value="Criar dia no final"></a></td>
+</form>
+
 <table>
   <% @travel.days.each do |day| %>
     <tr>
