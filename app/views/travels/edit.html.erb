@@ -20,25 +20,24 @@
 
       <div class="tab">
         <p><label>Nome da viagem</label></p>
-          <input id="travel_title" type="text" name="travel[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
+          <input id="travel_title" type="text" value="<%= @travel.name %>" name="travel[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
         <p><label>Para onde você vai?</label></p>
-          <input id="travel_destination" type="text" name="travel[destination]" placeholder="Orlando" oninput="this.className = ''">
+          <input id="travel_destination" type="text" value="<%= @travel.destination %>" name="travel[destination]" placeholder="Orlando" oninput="this.className = ''">
       </div>
 
       <div class="tab">
         <h3>Quando pretende viajar?</h3>
         <p><label>Data de ínicio</label></p>
-          <input id="travel_init_date" type="date" name="travel[init_date]" oninput="this.className = ''">
+          <input id="travel_init_date" type="date" value="<%= @travel.init_date.strftime("%d %m %Y") %>" name="travel[init_date]" oninput="this.className = ''">
         <p><label>Data final</label></p>
-          <input id="travel_final_date" type="date" name="travel[final_date]" oninput="this.className = ''">
+          <input id="travel_final_date" type="date" value="<%= @travel.final_date.strftime("%d %m %Y") %>" name="travel[final_date]" oninput="this.className = ''">
       </div>
 
       <div class="tab">
         <p><label>Descrição</label></p>
-          <input id="travel_description" type="text" name="travel[description]" placeholder="Passando por Orlando e Nova York" oninput="this.className = ''">
+          <input id="travel_description" type="text" value="<%= @travel.description %>" name="travel[description]" placeholder="Passando por Orlando e Nova York" oninput="this.className = ''">
       </div>
 
-      <%# <input type="submit" value="Criar"> %>
       <div style="overflow:auto;">
         <div style="float:right;">
           <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
