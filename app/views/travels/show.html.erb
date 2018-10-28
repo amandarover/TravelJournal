@@ -10,15 +10,15 @@
  
 <p>
   <strong>Data de início:</strong>
-  <%= @travel.init_date %>
+  <%= @travel.init_date.try(strftime("%d %m %Y")) %>
 </p>
  
 <p>
   <strong>Data final</strong>
-  <%= @travel.final_date %>
+  <%= @travel.final_date.try(strftime("%d %m %Y")) %>
 </p>
  
 <p>
-  <strong>Desrição</strong>
+  <strong>Descrição</strong>
   <%= @travel.description %>
 </p>

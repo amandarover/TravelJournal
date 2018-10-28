@@ -12,7 +12,9 @@
       <td><%= travel.name %></td>
       <td><%= travel.destination %></td>
       <td><%= travel.init_date %></td>
+      <%# <%= travel.init_date.try(strftime("%d %m %Y")) %>
       <td><%= travel.final_date %></td>
+      <%# <%= travel.final_date.try(strftime("%d %m %Y"))  %>
       <td><%= travel.description %></td>
       <td><%= link_to 'Show', travel_path(travel) %></td>
       <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
