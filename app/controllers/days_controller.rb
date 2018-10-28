@@ -6,11 +6,11 @@ class DaysController < ApplicationController
     raise invalid_dates_error_message unless validate_travel_date(travel.init_date, travel.final_date)
 
     travel_days = []
-    travel_duration_in_days = ((travel.final_date - travel.init_date) / 1.day)
+    travel_duration_in_days = ((travel.final_date - travel.init_date) / 1.day) + 1
     current_ordinal_day = 0
     current_date = travel.init_date.to_date
 
-    while current_ordinal_day <= travel_duration_in_days
+    while current_ordinal_day < travel_duration_in_days
       day_travel = create_day(travel, current_date)
       travel_days << day_travel
       current_ordinal_day += 1
@@ -19,12 +19,13 @@ class DaysController < ApplicationController
   end
 
   def create_day(travel, current_date)
-    return false if day_already_exists(travel, current_date)
+    return false unless day_already_exists(travel, current_date)
 
     day_travel = Day.new
     day_travel.date = current_date
     day_travel.travel_id = travel.id
     day_travel.save
+    day_travel
   end
 
   private
@@ -40,6 +41,6 @@ class DaysController < ApplicationController
   end
 
   def validate_travel_date(init_date, final_date)
-    init_date.to_date < final_date.to_date
+    init_date.to_date <= final_date.to_date
   end
 end
