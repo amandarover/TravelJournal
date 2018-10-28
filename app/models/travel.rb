@@ -1,5 +1,6 @@
 # Travel model
 class Travel < ActiveRecord::Base
+  has_many :days
   validates :name, presence: true
   validates :destination, presence: true
   validates :init_date, presence: true
