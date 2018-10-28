@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
 
-  resources :travels
+  resources :travels do
+    resources :days
+  end
 end
