@@ -29,7 +29,6 @@ class TravelsController < ApplicationController
 
   def update
     @travel = Travel.find(params[:id])
-    byebug
     if @travel.update(travel_params)
       redirect_to travel_path(@travel.id)
     else

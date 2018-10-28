@@ -1,10 +1,8 @@
 <body>
   <div class="container">
     <form id="edit_travel" class="form_with_steps" action="/travels/<%= @travel.id %>" accept-charset="UTF-8" method="post">
-      <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="_method" value="PUT">
       <h1>Editar Viagem:</h1>
-      <h1><%= @travel.id %></h1>
 
       <% if @travel.errors.any? %>
         <div id="error_explanation">
