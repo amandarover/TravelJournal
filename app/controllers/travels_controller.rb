@@ -20,10 +20,13 @@ class TravelsController < ApplicationController
       DaysController.new.create_travel_days(@travel)
       redirect_to travel_path(@travel.id)
     else
+      logger.info("TravelsController: Error to save travel with params| #{travel_params}")
       render new_travel_path
-      logger.info("TravelsController: Error to save travel with params:
-        #{travel_params}")
     end
+  rescue StandardError => e
+    logger.info("DAYS_CONTROLLER: Error to create_travel_days: #{e.message}")
+    @travel.errors.add(:base, invalid_dates_error_message)
+    render new_travel_path
   end
 
   def update
@@ -58,5 +61,9 @@ class TravelsController < ApplicationController
                                    :init_date,
                                    :final_date,
                                    :description)
+  end
+
+  def invalid_dates_error_message
+    'The fisrt day should be minor than the last day'
   end
 end

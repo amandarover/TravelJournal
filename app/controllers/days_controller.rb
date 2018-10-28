@@ -3,7 +3,8 @@ class DaysController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create_travel_days(travel)
-    # next unless validate_travel_date(init_date, final_date) TODO: Verify if the dates are valid (init should be minor than final)
+    raise invalid_dates_error_message unless validate_travel_date(travel.init_date, travel.final_date)
+
     travel_days = []
     travel_days_ordinal_count = ((travel.final_date - travel.init_date) / 1.day)
     current_ordinal_day = 0
@@ -17,9 +18,15 @@ class DaysController < ApplicationController
       travel_days << day_travel
       current_ordinal_day += 1
     end
-  rescue StandardError => e
-    logger.info("DAYS_CONTROLLER: Error to create: #{e.message}")
-    puts e.message
-    puts e.backtrace.inspect
+  end
+
+  private
+
+  def invalid_dates_error_message
+    'The fisrt day should be minor than the last day'
+  end
+
+  def validate_travel_date(init_date, final_date)
+    init_date.to_date < final_date.to_date
   end
 end
