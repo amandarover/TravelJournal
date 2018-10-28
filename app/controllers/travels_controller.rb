@@ -10,6 +10,10 @@ class TravelsController < ApplicationController
     @travel = Travel.new
   end
 
+  def edit
+    @travel = Travel.find(params[:id])
+  end
+
   def create
     @travel = Travel.new(travel_params)
 
@@ -18,7 +22,20 @@ class TravelsController < ApplicationController
     else
       render new_travel_path
       logger.info(
-        ">>>>>>CONTROLLER: Error to save travel with params: '#{travel_params}'"
+        ">>>>>>CONTROLLER: Error to save travel with params: #{travel_params}"
+      )
+    end
+  end
+
+  def update
+    @travel = Travel.find(params[:id])
+    byebug
+    if @travel.update(travel_params)
+      redirect_to travel_path(@travel.id)
+    else
+      render edit_travel_path
+      logger.info(
+        ">>>>>>CONTROLLER: Error to update travel with params: #{travel_params}"
       )
     end
   end
