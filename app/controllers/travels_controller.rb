@@ -17,6 +17,7 @@ class TravelsController < ApplicationController
   def create
     @travel = Travel.new(travel_params)
     if @travel.save
+      DaysController.new.create_travel_days(@travel)
       redirect_to travel_path(@travel.id)
     else
       render new_travel_path
