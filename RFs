@@ -1,0 +1,6 @@
+regra de negócios
+
+# Quando eu criar uma viagem com 10 dias de duração
+# E criar o décimo primeiro dia na lista de dias da viagem
+# O sistema deveaumentar a data final da viagem
+
