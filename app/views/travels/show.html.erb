@@ -2,22 +2,22 @@
   <strong>Nome:</strong>
   <%= @travel.name %>
 </p>
- 
+
 <p>
   <strong>Destino:</strong>
   <%= @travel.destination %>
 </p>
- 
+
 <p>
   <strong>Data de início:</strong>
-  <%= @travel.init_date.try(strftime("%d %m %Y")) %>
+  <%= @travel.init_date.strftime('%Y-%m-%d') %>
 </p>
  
 <p>
   <strong>Data final</strong>
-  <%= @travel.final_date.try(strftime("%d %m %Y")) %>
+  <%= @travel.final_date.strftime('%Y-%m-%d') %>
 </p>
- 
+
 <p>
   <strong>Descrição</strong>
   <%= @travel.description %>
