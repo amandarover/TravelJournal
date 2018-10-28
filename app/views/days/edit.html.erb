@@ -1,0 +1,57 @@
+<body>
+  <div class="container">
+    <form id="edit_day" class="form_with_steps" action="/days/<%= @day.id %>" accept-charset="UTF-8" method="post">
+      <input type="hidden" name="_method" value="PUT">
+      <h1>Editar Viagem:</h1>
+
+      <% if @day.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            Ops! Tivemos <%= pluralize(@day.errors.count, "erro") %>.
+            Verifique os valores inseridos e tente novamente.
+          </h2>
+          <ul>
+            <% @day.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="tab">
+        <p><label>Nome da viagem</label></p>
+          <input id="day_title" type="text" value="<%= @day.name %>" name="day[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
+        <p><label>Para onde você vai?</label></p>
+          <input id="day_destination" type="text" value="<%= @day.destination %>" name="day[destination]" placeholder="Orlando" oninput="this.className = ''">
+      </div>
+
+      <div class="tab">
+        <h3>Quando pretende viajar?</h3>
+        <p><label>Data de ínicio</label></p>
+        <% byebug %>
+          <input id="day_init_date" type="date" value="<%= @day.init_date.strftime('%Y-%m-%d') %>" name="day[init_date]" oninput="this.className = ''">
+        <p><label>Data final</label></p>
+          <input id="day_final_date" type="date" value="<%= @day.final_date.strftime('%Y-%m-%d') %>" name="day[final_date]" oninput="this.className = ''">
+      </div>
+
+      <div class="tab">
+        <p><label>Descrição</label></p>
+          <input id="day_description" type="text" value="<%= @day.description %>" name="day[description]" placeholder="Passando por Orlando e Nova York" oninput="this.className = ''">
+      </div>
+
+      <div style="overflow:auto;">
+        <div style="float:right;">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
+    </form>
+  </div>
+</body>
+<script src="/assets/form_with_steps.js"></script>

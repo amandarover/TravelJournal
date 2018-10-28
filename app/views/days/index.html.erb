@@ -1,0 +1,22 @@
+<h1>Listing days</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+
+  <% @days.each do |day| %>
+    <tr>
+      <td><%= day.name %></td>
+      <td><%= day.destination %></td>
+      <td><%= day.init_date.strftime('%Y-%m-%d') %></td>
+      <td><%= day.final_date.strftime('%Y-%m-%d') %></td>
+      <td><%= day.description %></td>
+      <td><%= link_to 'Show', day_path(day) %></td>
+      <td><%= link_to 'Edit', edit_day_path(day) %></td>
+      <td><%= link_to 'Destroy', day_path(day), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
