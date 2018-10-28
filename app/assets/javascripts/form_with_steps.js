@@ -64,3 +64,5 @@ function fixStepIndicator(n) {
     //... and adds the "active" class to the current step:
     steps[n].className += " active";
 }
+
+// TODO: Make enter go to next step form

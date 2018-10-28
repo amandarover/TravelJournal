@@ -1,7 +1,7 @@
 <body>
   <div class="container">
     <form id="new_day" class="form_with_steps" action="/days" accept-charset="UTF-8" method="post">
-      <h1>Criar nova Viagem:</h1>
+      <h1>CRIAÇÃO DE DIA (Não preciso dessa pagina)</h1>
 
       <% if @day.errors.any? %>
         <div id="error_explanation">
@@ -18,10 +18,8 @@
       <% end %>
 
       <div class="tab">
-        <p><label>Nome da viagem</label></p>
-          <input id="day_title" type="text" name="day[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
-        <p><label>Para onde você vai?</label></p>
-          <input id="day_destination" type="text" name="day[destination]" placeholder="Orlando" oninput="this.className = ''">
+        <p><label>Tipo de evento:</label></p>
+          <input id="day_title" type="text" name="day[name]" placeholder="Check-in/check-out hotel" oninput="this.className = ''">
       </div>
 
       <div class="tab">

@@ -29,6 +29,7 @@ class TravelsController < ApplicationController
 
   def update
     @travel = Travel.find(params[:id])
+    # TODO: verify if exist params to update (to not do a useless update)
     if @travel.update(travel_params)
       redirect_to travel_path(@travel.id)
     else
@@ -45,7 +46,7 @@ class TravelsController < ApplicationController
 
   def destroy
     @travel = Travel.find(params[:id])
-    # TODO: verify if destroy its ok and don't have and dependencies
+    # TODO: verify if destroy its ok and don't have any dependencies
     @travel.destroy
     redirect_to travels_path
   end
