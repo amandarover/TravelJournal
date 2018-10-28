@@ -16,14 +16,12 @@ class TravelsController < ApplicationController
 
   def create
     @travel = Travel.new(travel_params)
-
     if @travel.save
       redirect_to travel_path(@travel.id)
     else
       render new_travel_path
-      logger.info(
-        ">>>>>>CONTROLLER: Error to save travel with params: #{travel_params}"
-      )
+      logger.info("TravelsController: Error to save travel with params:
+        #{travel_params}")
     end
   end
 

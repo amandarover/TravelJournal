@@ -28,7 +28,6 @@
       <div class="tab">
         <h3>Quando pretende viajar?</h3>
         <p><label>Data de ínicio</label></p>
-        <% byebug %>
           <input id="day_init_date" type="date" value="<%= @day.init_date.strftime('%Y-%m-%d') %>" name="day[init_date]" oninput="this.className = ''">
         <p><label>Data final</label></p>
           <input id="day_final_date" type="date" value="<%= @day.final_date.strftime('%Y-%m-%d') %>" name="day[final_date]" oninput="this.className = ''">
