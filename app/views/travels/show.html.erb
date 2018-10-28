@@ -22,3 +22,16 @@
   <strong>Descrição</strong>
   <%= @travel.description %>
 </p>
+
+<h2>Dias</h2>
+<td><%= link_to 'Create', new_travel_day_path(@travel.id) %></td>
+<table>
+  <% @travel.days.each do |day| %>
+    <tr>
+      <td><%= day.date %></td>
+      <td><%= link_to 'Show', day_path(day) %></td>
+      <td><%= link_to 'Edit', edit_day_path(day) %></td>
+      <td><%= link_to 'Destroy', day_path(day), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
