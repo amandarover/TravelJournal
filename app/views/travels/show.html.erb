@@ -27,7 +27,6 @@
 <td><%= link_to 'Create', new_travel_day_path(@travel.id) %></td>
 <table>
   <% @travel.days.each do |day| %>
-  <% byebug %>
     <tr>
       <td><%= day.date %></td>
     </tr>

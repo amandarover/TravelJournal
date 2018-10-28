@@ -32,13 +32,13 @@ class TravelsController < ApplicationController
   def update
     @travel = Travel.find(params[:id])
     # TODO: verify if exist params to update (to not do a useless update)
+    # DaysController.new.create(@travel)
     if @travel.update(travel_params)
       redirect_to travel_path(@travel.id)
     else
       render edit_travel_path
-      logger.info(
-        ">>>>>>CONTROLLER: Error to update travel with params: #{travel_params}"
-      )
+      logger.info("TravelsController: Error to update travel with params|
+        #{travel_params}")
     end
   end
 
@@ -64,6 +64,6 @@ class TravelsController < ApplicationController
   end
 
   def invalid_dates_error_message
-    'The fisrt day should be minor than the last day'
+    'The fisrt day should be minor or equal to the last day'
   end
 end

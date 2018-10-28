@@ -37,7 +37,8 @@ class DaysController < ApplicationController
   end
 
   def invalid_dates_error_message
-    'The fisrt day should be minor than the last day'
+    # TODO: create logger class with messages
+    'The fisrt day should be minor or equal to the last day'
   end
 
   def validate_travel_date(init_date, final_date)
