@@ -43,6 +43,12 @@ class TravelsController < ApplicationController
     @travel = Travel.find params[:id]
   end
 
+  def destroy
+    @travel = Travel.find(params[:id])
+    @travel.destroy
+    redirect_to travels_path
+  end
+
   private
 
   def travel_params

@@ -18,6 +18,7 @@
       <td><%= travel.description %></td>
       <td><%= link_to 'Show', travel_path(travel) %></td>
       <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
+      <td><%= link_to 'Destroy', travel_path(travel), method: :delete %></td>
     </tr>
   <% end %>
 </table>
