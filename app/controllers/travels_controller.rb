@@ -32,20 +32,20 @@ class TravelsController < ApplicationController
   def update
     @travel = Travel.find(params[:id])
     # TODO: verify if exist params to update (to not do a useless update) (Rails do that?)
-    new_duration = (params[:init_date] - params[:init_date])
-    raise invalid_duration_error_message unless @travel.days.size == new_duration
+    new_duration = ((params[:travel][:final_date].in_time_zone - params[:travel][:init_date].in_time_zone) / 1.day) + 1
+    raise invalid_duration_error_message unless @travel.days.count == new_duration.to_i
 
     if @travel.update(travel_params)
-      # DaysController.new.update(@travel)
+      DaysController.new.update_days(@travel)
       redirect_to travels_path
     else
-      redirect_to edit_travel_path(@travel.id)
       # The eror printed on html will not work because I am doing a redirect
       logger.info("TravelsController: Error to update travel with params|
         #{travel_params}")
+      redirect_to edit_travel_path(@travel.id)
     end
   rescue StandardError => e
-    logger.info("DAYS_CONTROLLER: Error to update_travel_duration: #{e.message}")
+    logger.info("TravelsController: Error to update travel days: #{e.message}")
     @travel.errors.add(:base, invalid_duration_error_message)
     # The eror printed on html will not work because I am doing a redirect
     redirect_to edit_travel_path(@travel.id)

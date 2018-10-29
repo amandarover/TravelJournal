@@ -6,4 +6,8 @@ class Travel < ActiveRecord::Base
   validates :init_date, presence: true
   validates :final_date, presence: true
   validates :description, presence: true
+
+  def duration
+    @travel.days.size
+  end
 end
