@@ -38,7 +38,7 @@
 </form>
 
 <table>
-  <% @travel.days.each do |day| %>
+  <% @travel.days.order(:date).each do |day| %>
     <tr>
       <td><%= day.date %></td>
     </tr>
