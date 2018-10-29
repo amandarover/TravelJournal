@@ -60,9 +60,7 @@ class TravelsController < ApplicationController
     redirect_to travels_path
   end
 
-  def add_one_day
-    # TODO: Quando clicar no botao de adicionar, enviar como parametro a travel qe estou adicionando o dia 
-    # e tbm se adiciono no final ou comeco
+  def add_one_day # TODO: Move to DaysController
     @travel = Travel.find(params[:id])
     init_date = true if params[:add_on_first_day]
     final_date = true if params[:add_on_last_day]

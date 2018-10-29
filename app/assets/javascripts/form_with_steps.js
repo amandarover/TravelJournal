@@ -66,3 +66,4 @@ function fixStepIndicator(n) {
 }
 
 // TODO: Make enter go to next step form
+// TODO: edit-travel-form.js Automatically update datepicker final_date do travel have the same duration that when created
