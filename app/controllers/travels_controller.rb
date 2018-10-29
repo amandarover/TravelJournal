@@ -31,15 +31,22 @@ class TravelsController < ApplicationController
 
   def update
     @travel = Travel.find(params[:id])
-    # TODO: verify if exist params to update (to not do a useless update)
-    # DaysController.new.create(@travel)
+    # TODO: verify if exist params to update (to not do a useless update) (Rails do that?)
+    new_duration = (params[:init_date] - params[:init_date])
+    raise invalid_duration_error_message unless @travel.days.size == new_duration
+
     if @travel.update(travel_params)
+      # DaysController.new.update(@travel)
       redirect_to travel_path(@travel.id)
     else
       render edit_travel_path
       logger.info("TravelsController: Error to update travel with params|
         #{travel_params}")
     end
+  rescue StandardError => e
+    logger.info("DAYS_CONTROLLER: Error to update_travel_duration: #{e.message}")
+    @travel.errors.add(:base, invalid_duration_error_message)
+    render new_travel_path
   end
 
   def show
@@ -83,5 +90,9 @@ class TravelsController < ApplicationController
 
   def invalid_dates_error_message
     'The fisrt day should be minor or equal to the last day'
+  end
+
+  def invalid_duration_error_message
+    'The duration of the travel can not be changed'
   end
 end
