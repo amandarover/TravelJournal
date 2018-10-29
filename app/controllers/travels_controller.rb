@@ -37,16 +37,18 @@ class TravelsController < ApplicationController
 
     if @travel.update(travel_params)
       # DaysController.new.update(@travel)
-      redirect_to travel_path(@travel.id)
+      redirect_to travels_path
     else
-      render edit_travel_path
+      redirect_to edit_travel_path(@travel.id)
+      # The eror printed on html will not work because I am doing a redirect
       logger.info("TravelsController: Error to update travel with params|
         #{travel_params}")
     end
   rescue StandardError => e
     logger.info("DAYS_CONTROLLER: Error to update_travel_duration: #{e.message}")
     @travel.errors.add(:base, invalid_duration_error_message)
-    render new_travel_path
+    # The eror printed on html will not work because I am doing a redirect
+    redirect_to edit_travel_path(@travel.id)
   end
 
   def show
