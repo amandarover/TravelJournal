@@ -11,8 +11,8 @@
     <tr>
       <td><%= travel.name %></td>
       <td><%= travel.destination %></td>
-      <td><%= travel.init_date.strftime('%Y-%m-%d') %></td>
-      <td><%= travel.final_date.strftime('%Y-%m-%d') %></td>
+      <td><%= travel.init_date.strftime('%d/%m/%Y') %></td>
+      <td><%= travel.final_date.strftime('%d/%m/%Y') %></td>
       <td><%= travel.description %></td>
       <td><%= link_to 'Show', travel_path(travel) %></td>
       <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
