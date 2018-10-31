@@ -35,7 +35,7 @@ class TravelsController < ApplicationController
     raise invalid_duration_error_message unless @travel.days.count == new_travel_duration
 
     if @travel.update(travel_params)
-      DaysController.new.update_days(@travel, new_travel_duration)
+      DaysController.new.update_days(@travel)
       redirect_to travels_path
     else
       # The eror printed on html will not work because I am doing a redirect

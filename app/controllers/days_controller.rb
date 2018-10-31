@@ -34,7 +34,7 @@ class DaysController < ApplicationController
     redirect_to travel_path(@travel.id)
   end
 
-  def update_days(travel, new_travel_duration)
+  def update_days(travel)
     raise invalid_dates_error_message unless validate_travel_date(travel.init_date, travel.final_date)
 
     init_date = travel.init_date
