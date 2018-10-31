@@ -24,7 +24,10 @@ class DaysController < ApplicationController
     day_travel = Day.new
     day_travel.date = current_date
     day_travel.travel_id = travel.id
-    day_travel.save
+    unless day_travel.save
+      logger.info("DaysController: Error to create day with params|
+        #{current_date} to #{travel.id}")
+    end
     day_travel
   end
 
