@@ -26,7 +26,7 @@ class DaysController < ApplicationController
     day_travel.travel_id = travel.id
     unless day_travel.save
       logger.info("DaysController: Error to create day with params|
-        #{current_date} to #{travel.id}")
+        #{current_date} to travel.id=#{travel.id}")
     end
     day_travel
   end
@@ -39,7 +39,7 @@ class DaysController < ApplicationController
       new_date = { date: init_date }
       unless day.update(new_date) # Verify if its only upadate 'date' value
         logger.info("DaysController: Error to update day with params|
-        #{current_date} to #{travel.id}")
+          #{current_date} to travel.id=#{travel.id}")
       end
       init_date += 1.day
     end
