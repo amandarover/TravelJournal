@@ -45,6 +45,28 @@ class DaysController < ApplicationController
     end
   end
 
+  def destroy_one_day
+    @travel = Travel.find(params[:id])
+    where_to_destroy = params[:where_to_destroy]
+    raise invalid_delete_day_error_message unless validate_has_at_least_one_day(@travel.days)
+
+    if where_to_destroy == 'destroy_final_date'
+      @travel.days.order(:date).last.destroy
+      @travel.final_date -= 1.day
+      @travel.save
+    elsif where_to_destroy == 'destroy_init_date'
+      @travel.days.order(:date).first.destroy
+      @travel.init_date += 1.day
+      @travel.save
+    end
+    redirect_to travel_path(@travel.id) # TODO: duplicated call
+  rescue StandardError => e
+    logger.info("TravelsController: Error to destroy travel day: #{e.message}")
+    @travel.errors.add(:base, invalid_delete_day_error_message)
+    # The eror printed on html will not work because I am doing a redirect
+    redirect_to travel_path(@travel.id)
+  end
+
   private
 
   def days_already_exists(travel_days, current_date)
@@ -62,7 +84,16 @@ class DaysController < ApplicationController
     'The fisrt day should be minor or equal to the last day'
   end
 
+  def invalid_delete_day_error_message
+    # TODO: create logger class with messages
+    'This day can not be deleted'
+  end
+
   def validate_travel_date(init_date, final_date)
     init_date.to_date <= final_date.to_date
+  end
+
+  def validate_has_at_least_one_day(travel_days)
+    travel_days.count > 1
   end
 end

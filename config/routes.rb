@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
 
   post '/travels/:id/add_one_day', to: 'travels#add_one_day', as: 'add_travel_day'
+  delete '/travels/:id/delete_one_day/:where_to_destroy', to: 'days#destroy_one_day', as: 'destroy_travel_day'
 end

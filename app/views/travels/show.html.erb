@@ -37,6 +37,12 @@
   <input type="submit" value="Criar dia no início"></a>
 </form>
 
+<% if @travel.days.count > 1 %>
+  <td><%= link_to 'Deletar o primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"), method: :delete %></td>
+  <td><%= link_to 'Deletar o último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"), method: :delete %></td>
+  <%# TODO: If travel has just one day, don't show any delete day button %>
+<% end %>
+
 <table>
   <% @travel.days.order(:date).each do |day| %>
     <tr>
