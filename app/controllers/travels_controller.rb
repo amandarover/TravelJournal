@@ -61,22 +61,6 @@ class TravelsController < ApplicationController
     redirect_to travels_path
   end
 
-  def add_one_day # TODO: Move to DaysController
-    @travel = Travel.find(params[:id])
-    init_date = true if params[:add_on_first_day]
-    final_date = true if params[:add_on_last_day]
-    if final_date
-      @travel.final_date += 1.day
-      @travel.save
-      DaysController.new.create_day(@travel, @travel.final_date)
-    elsif init_date
-      @travel.init_date -= 1.day
-      @travel.save
-      DaysController.new.create_day(@travel, @travel.init_date)
-    end
-    redirect_to travel_path(@travel.id)
-  end
-
   private
 
   def new_travel_duration

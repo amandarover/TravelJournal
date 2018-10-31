@@ -18,17 +18,20 @@ class DaysController < ApplicationController
     end
   end
 
-  def create_day(travel, current_date)
-    return false if days_already_exists(travel.days, current_date)
-
-    day_travel = Day.new
-    day_travel.date = current_date
-    day_travel.travel_id = travel.id
-    unless day_travel.save
-      logger.info("DaysController: Error to create day with params|
-        #{current_date} to travel.id=#{travel.id}")
+  def add_one_day
+    @travel = Travel.find(params[:id])
+    init_date = true if params[:add_on_first_day]
+    final_date = true if params[:add_on_last_day]
+    if final_date
+      @travel.final_date += 1.day
+      @travel.save
+      create_day(@travel, @travel.final_date)
+    elsif init_date
+      @travel.init_date -= 1.day
+      @travel.save
+      create_day(@travel, @travel.init_date)
     end
-    day_travel
+    redirect_to travel_path(@travel.id)
   end
 
   def update_days(travel, new_travel_duration)
@@ -68,6 +71,19 @@ class DaysController < ApplicationController
   end
 
   private
+
+  def create_day(travel, current_date)
+    return false if days_already_exists(travel.days, current_date)
+
+    day_travel = Day.new
+    day_travel.date = current_date
+    day_travel.travel_id = travel.id
+    unless day_travel.save
+      logger.info("DaysController: Error to create day with params|
+        #{current_date} to travel.id=#{travel.id}")
+    end
+    day_travel
+  end
 
   def days_already_exists(travel_days, current_date)
     matching_days = []
