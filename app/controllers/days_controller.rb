@@ -31,23 +31,17 @@ class DaysController < ApplicationController
     day_travel
   end
 
-  def update_days(travel)
+  def update_days(travel, new_travel_duration)
     raise invalid_dates_error_message unless validate_travel_date(travel.init_date, travel.final_date)
 
-    travel_duration_in_days = ((travel.final_date - travel.init_date) / 1.day) + 1
-    current_date = travel.init_date.to_date
-
+    init_date = travel.init_date
     travel.days.order(:date).each do |day|
-      current_ordinal_day = 0
-      while current_ordinal_day < travel_duration_in_days
-        byebug
-        unless day_already_exists(travel, current_date)
-          new_date = { date: current_date }
-          day.update(new_date)
-        end
-        current_date += 1.day
-        current_ordinal_day += 1
+      new_date = { date: init_date }
+      unless day.update(new_date) # Verify if its only upadate 'date' value
+        logger.info("DaysController: Error to update day with params|
+        #{current_date} to #{travel.id}")
       end
+      init_date += 1.day
     end
   end
 
