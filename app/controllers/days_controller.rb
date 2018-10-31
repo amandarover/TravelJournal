@@ -19,7 +19,7 @@ class DaysController < ApplicationController
   end
 
   def create_day(travel, current_date)
-    return false if day_already_exists(travel, current_date)
+    return false if days_already_exists(travel.days, current_date)
 
     day_travel = Day.new
     day_travel.date = current_date
@@ -50,11 +50,14 @@ class DaysController < ApplicationController
 
   private
 
-  def day_already_exists(travel, current_date)
-    travel.days.each do |day|
-      return true if day.date == current_date
+  def days_already_exists(travel_days, current_date)
+    matching_days = []
+    travel_days.each do |day|
+      matching_days << day if day.date == current_date
     end
-    false
+    return false if matching_days.empty?
+
+    true
   end
 
   def invalid_dates_error_message
