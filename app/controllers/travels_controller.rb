@@ -32,11 +32,10 @@ class TravelsController < ApplicationController
   def update
     @travel = Travel.find(params[:id])
     # TODO: verify if exist params to update (to not do a useless update) (Rails do that?)
-    new_duration = ((params[:travel][:final_date].in_time_zone - params[:travel][:init_date].in_time_zone) / 1.day) + 1
-    raise invalid_duration_error_message unless @travel.days.count == new_duration.to_i
+    raise invalid_duration_error_message unless @travel.days.count == new_travel_duration
 
     if @travel.update(travel_params)
-      DaysController.new.update_days(@travel)
+      DaysController.new.update_days(@travel, new_travel_duration)
       redirect_to travels_path
     else
       # The eror printed on html will not work because I am doing a redirect
@@ -79,6 +78,11 @@ class TravelsController < ApplicationController
   end
 
   private
+
+  def new_travel_duration
+    (((travel_params['final_date'].in_time_zone - travel_params[:init_date]
+          .in_time_zone) / 1.day) + 1).to_i
+  end
 
   def travel_params
     params.require(:travel).permit(:name,
