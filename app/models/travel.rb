@@ -1,6 +1,6 @@
 # Travel model
 class Travel < ActiveRecord::Base
-  has_many :days
+  has_many :days, dependent: :destroy
   validates :name, presence: true
   validates :destination, presence: true
   validates :init_date, presence: true
