@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   resources :travels do
-    resources :days
+    resources :days do
+      resources :events
+    end
   end
 
   post '/travels/:id/add_one_day', to: 'days#add_one_day', as: 'add_travel_day'
