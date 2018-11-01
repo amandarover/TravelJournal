@@ -2,7 +2,7 @@
 class Travel < ActiveRecord::Base
   has_many :days, dependent: :destroy
   validates :name, presence: true
-  validates :destination, presence: true
+  validates :address, presence: true
   validates :init_date, presence: true
   validates :final_date, presence: true
   validates :description, presence: true

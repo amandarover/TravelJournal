@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  name: MyString
+  address: MyString
+  starting_time: 2018-10-31 22:14:23
+  ending_time: 2018-10-31 22:14:23
+  pricing: 
+  description: MyString
+
+two:
+  type: 
+  name: MyString
+  address: MyString
+  starting_time: 2018-10-31 22:14:23
+  ending_time: 2018-10-31 22:14:23
+  pricing: 
+  description: MyString
