@@ -1,10 +1,27 @@
 == README
 
-=== Travel Journal
-
 ===== Hello everyone!
 
 This is a WIP for a Travel Organizer, called the Travel Journal!
 
 To run the server just hit:
 <tt>rails s</tt>.
+
+=== To setup sqlite3
+Do a migration with <tt>rake db:migrate</tt>
+
+  class CreateEvents < ActiveRecord::Migration
+    def change
+      create_table :events do |t|
+        t.string :type
+        t.string :name
+        t.string :address
+        t.datetime :starting_time
+        t.datetime :ending_time
+        t.float :pricing
+        t.string :description
+
+        t.timestamps null: false
+      end
+    end
+  end
