@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 
     @event.day_id = day_id
     if @event.save
-      redirect_to travel_day_event_path(travel_id, day_id, @event.id)
+      redirect_to travel_path(travel_id)
     else
       logger.info("EventsController: Error to create event with params| #{event_params}")
       render new_travel_day_event_path(travel_id, day_id)
