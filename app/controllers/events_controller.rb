@@ -4,6 +4,8 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @travel = Travel.find(params[:travel_id])
+    @day = Day.find(params[:day_id])
   end
 
   def create(travel_id, day_id)

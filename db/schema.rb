@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190502145451) do
+ActiveRecord::Schema.define(version: 20190502192419) do
+
   create_table "days", force: :cascade do |t|
     t.date     "date"
     t.integer  "travel_id"
@@ -22,7 +23,7 @@ ActiveRecord::Schema.define(version: 20190502145451) do
   add_index "days", ["travel_id"], name: "index_days_on_travel_id"
 
   create_table "events", force: :cascade do |t|
-    t.string   "type"
+    t.string   "category"
     t.string   "name"
     t.string   "address"
     t.datetime "starting_time"
@@ -45,4 +46,5 @@ ActiveRecord::Schema.define(version: 20190502145451) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
 end

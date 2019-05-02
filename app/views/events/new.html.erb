@@ -1,6 +1,6 @@
 <body>
   <div class="container">
-    <form id="new_event" action="/events" accept-charset="UTF-8" method="post">
+    <form id="new_event" action="<%= travel_day_events_path(@travel.id, @day.id) %>" accept-charset="UTF-8" method="post">
       <h1>Criar novo Evento:</h1>
 
       <%# <% if @events.errors.any? %> %>
@@ -16,12 +16,12 @@
         <%# </div> %>
       <%# <% end %> %>
 
-      <h3>Dia <% @day %></h3>
+      <h3>Dia <% @day.date %></h3>
       <%# TODO: How can I show the day that I am editing/creatring? %>
-      <p><label>Tipo</label></p>
-        <input id="event_type" type="text" name="event[type]" placeholder="Estadia">
       <p><label>Nome</label></p>
         <input id="event_title" type="text" name="event[name]" placeholder="Check-in">
+      <p><label>Categoria</label></p>
+        <input id="event_type" type="text" name="event[category]" placeholder="Estadia">
       <p><label>Endereço</label></p>
         <input id="event_address" type="text" name="event[address]" placeholder="Rua Maria da silva">
 
@@ -31,9 +31,10 @@
         <input id="event_ending_time" type="time" name="event[ending_time]">
 
       <p><label>Preço</label></p>
-        <input id="event_pricing" type="text" name="event[pricing]" placeholder="R$ 1.000">
+        <input id="event_pricing" type="text" name="event[pricing]" placeholder="1.000">
+        <%#  TODO: Add price choice, dolar or reais %>
       <p><label>Descrição</label></p>
-        <input id="event_description" type="text" name="event[description]" placeholder="Passando por Orlando e Nova York">
+        <input id="event_description" type="text" name="event[description]" placeholder="Hotel em NY">
 
       <input type="submit" value="Criar">
     </form>
