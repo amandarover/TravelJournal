@@ -14,3 +14,6 @@ Enter <tt>sqlite3 db/development.sqlite3</tt> in project's root
 Add the following commands to see better:
   .headers on
   .mode column
+
+- To see all the columns from a table
+  .schema events
