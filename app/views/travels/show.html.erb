@@ -45,6 +45,13 @@
   <% @travel.days.order(:date).each do |day| %>
     <tr>
       <td><%= day.date.strftime('%d/%m') %></td>
+      <td><%= link_to 'Criar evento', new_travel_day_event_path(@travel.id, day.id)%> </td>
+      <% if day.events.try(:first) %>
+        <% day.events.order(:starting_time).each do |event| %>
+          <%= event.type %>
+          <%= event.name %>
+        <% end %>
+      <% end %>
     </tr>
   <% end %>
 </table>
