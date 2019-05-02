@@ -4,46 +4,48 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @travel = Travel.find(params[:travel_id])
-    @day = Day.find(params[:day_id])
+    @travel = Travel.find(travel_id)
+    @day = Day.find(day_id)
   end
 
-  def create(travel_id, day_id)
+  def create
     @event = Event.new(event_params)
+    raise invalid_dates_error_message unless validate_event_date(@event.starting_time, @event.ending_time)
+
+    @event.day_id = day_id
     if @event.save
-      DaysController.new.create_event_days(@event)
-      redirect_to event_path(@event.id)
+      redirect_to travel_day_event_path(travel_id, day_id, @event.id)
     else
-      logger.info("eventsController: Error to save event with params| #{event_params}")
-      render new_event_path
+      logger.info("EventsController: Error to create event with params| #{event_params}")
+      render new_travel_day_event_path(travel_id, day_id)
     end
   end
-
-  # def create_event(day)
-  #   raise invalid_dates_error_message unless validate_event_date(event.init_date, event.final_date)
-
-  #   event_events = []
-  #   event_duration_in_events = ((event.final_date - event.init_date) / 1.day) + 1
-  #   current_ordinal_day = 0
-  #   current_date = event.init_date.to_date
-
-  #   while current_ordinal_day < event_duration_in_events
-  #     day_event = create_day(event, current_date)
-  #     event_events << day_event
-  #     current_ordinal_day += 1
-  #     current_date += 1.day
-  #   end
-  # end
 
   private
 
   def event_params
-    params.require(:event).permit(:type,
+    params.require(:event).permit(:category,
                                   :name,
                                   :address,
                                   :starting_time,
                                   :ending_time,
                                   :pricing,
                                   :description)
+  end
+
+  def travel_id
+    params[:travel_id]
+  end
+
+  def day_id
+    params[:day_id]
+  end
+
+  def validate_event_date(init_date, final_date)
+    init_date.to_date <= final_date.to_date
+  end
+
+  def invalid_dates_error_message
+    'The starting time should be minor or equal to the ending time'
   end
 end

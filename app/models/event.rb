@@ -1,7 +1,7 @@
 # Event model
 class Event < ActiveRecord::Base
   belongs_to :day
-  validates :type, presence: true
+  validates :category, presence: true
   validates :name, presence: true
   validates :address, presence: true
   validates :starting_time, presence: true
