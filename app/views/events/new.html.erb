@@ -3,19 +3,6 @@
     <form id="new_event" action="<%= travel_day_events_path(@travel.id, @day.id) %>" accept-charset="UTF-8" method="post">
       <h1>Criar novo Evento:</h1>
 
-      <%# <% if @events.errors.any? %> %>
-        <%# <div id="error_explanation"> %>
-          <%# <h2> %>
-            <%# Ops! Tivemos <%= pluralize(@events.errors.count, "erro") %>. %>
-          <%# </h2> %>
-          <%# <ul> %>
-            <%# <% @events.errors.full_messages.each do |msg| %> %>
-              <%# <li><%= msg %></li> %>
-            <%# <% end %> %>
-          <%# </ul> %>
-        <%# </div> %>
-      <%# <% end %> %>
-
       <h3>Dia <% @day.date %></h3>
       <%# TODO: How can I show the day that I am editing/creatring? %>
       <p><label>Nome</label></p>
