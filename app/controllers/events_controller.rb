@@ -1,4 +1,5 @@
-class EventController < ApplicationController
+# Events Controller
+class EventsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def new
