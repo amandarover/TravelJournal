@@ -15,5 +15,5 @@ Add the following commands to see better:
   .headers on
   .mode column
 
-- To see all the columns from a table
-  .schema events
+* To see all the columns from a table
+<tt>.schema events</tt>
