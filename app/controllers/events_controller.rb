@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    raise invalid_dates_error_message unless validate_event_date(@event.starting_time, @event.ending_time)
+    raise invalid_dates_error_message unless validate_event_time(@event.starting_time, @event.ending_time)
 
     @event.day_id = day_id
     if @event.save
@@ -45,8 +45,8 @@ class EventsController < ApplicationController
     params[:day_id]
   end
 
-  def validate_event_date(init_date, final_date)
-    init_date.to_date <= final_date.to_date
+  def validate_event_time(init_date, final_date)
+    init_date <= final_date
   end
 
   def invalid_dates_error_message
