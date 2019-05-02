@@ -1,11 +1,16 @@
-== README
+= Travel Journal
 
-===== Hello everyone!
+Hello everyone!
 
 This is a WIP for a Travel Organizer, called the Travel Journal!
 
 To run the server just hit:
 <tt>rails s</tt>.
 
-=== To acess the database
+= Development
+== Database
 Enter <tt>sqlite3 db/development.sqlite3</tt> in project's root
+
+Add the following commands to see better:
+  .headers on
+  .mode column
