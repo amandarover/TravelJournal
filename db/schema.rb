@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181101011423) do
-
+ActiveRecord::Schema.define(version: 20190502145451) do
   create_table "days", force: :cascade do |t|
     t.date     "date"
     t.integer  "travel_id"
@@ -32,7 +31,10 @@ ActiveRecord::Schema.define(version: 20181101011423) do
     t.string   "description"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "day_id"
   end
+
+  add_index "events", ["day_id"], name: "index_events_on_day_id"
 
   create_table "travels", force: :cascade do |t|
     t.string   "name"
@@ -43,5 +45,4 @@ ActiveRecord::Schema.define(version: 20181101011423) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
 end
