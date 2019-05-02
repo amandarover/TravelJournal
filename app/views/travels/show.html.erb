@@ -68,6 +68,7 @@
 
           <p><strong>Descrição:</strong>
           <%= event.description %></p>
+          <%= link_to 'Deletar evento', "/travels/#{@travel.id}/days/#{day.id}/events/#{event.id}", method: :delete %>
         </td>
       <% end %>
     </tr>
