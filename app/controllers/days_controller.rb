@@ -2,11 +2,6 @@
 class DaysController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
-  def Index
-    @travel = Travel.find[:travel_id]
-    @days = @travel.days.order(:date)
-  end
-
   def create_travel_days(travel)
     raise invalid_dates_error_message unless validate_travel_date(travel.init_date, travel.final_date)
 
