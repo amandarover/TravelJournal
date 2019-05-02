@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190502192419) do
+ActiveRecord::Schema.define(version: 20190502210217) do
 
   create_table "days", force: :cascade do |t|
     t.date     "date"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20190502192419) do
     t.string   "category"
     t.string   "name"
     t.string   "address"
-    t.datetime "starting_time"
-    t.datetime "ending_time"
+    t.string   "starting_time"
+    t.string   "ending_time"
     t.float    "pricing"
     t.string   "description"
     t.datetime "created_at",    null: false
