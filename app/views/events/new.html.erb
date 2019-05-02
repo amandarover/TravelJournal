@@ -1,0 +1,41 @@
+<body>
+  <div class="container">
+    <form id="new_event" action="/events" accept-charset="UTF-8" method="post">
+      <h1>Criar novo Evento:</h1>
+
+      <%# <% if @events.errors.any? %> %>
+        <%# <div id="error_explanation"> %>
+          <%# <h2> %>
+            <%# Ops! Tivemos <%= pluralize(@events.errors.count, "erro") %>. %>
+          <%# </h2> %>
+          <%# <ul> %>
+            <%# <% @events.errors.full_messages.each do |msg| %> %>
+              <%# <li><%= msg %></li> %>
+            <%# <% end %> %>
+          <%# </ul> %>
+        <%# </div> %>
+      <%# <% end %> %>
+
+      <h3>Dia <% @day %></h3>
+      <%# TODO: How can I show the day that I am editing/creatring? %>
+      <p><label>Tipo</label></p>
+        <input id="event_type" type="text" name="event[type]" placeholder="Estadia">
+      <p><label>Nome</label></p>
+        <input id="event_title" type="text" name="event[name]" placeholder="Check-in">
+      <p><label>Endereço</label></p>
+        <input id="event_address" type="text" name="event[address]" placeholder="Rua Maria da silva">
+
+      <p><label>Horário de ínicio</label></p>
+        <input id="event_starting_time" type="time" name="event[starting_time]">
+      <p><label>Horário de término</label></p>
+        <input id="event_ending_time" type="time" name="event[ending_time]">
+
+      <p><label>Preço</label></p>
+        <input id="event_pricing" type="text" name="event[pricing]" placeholder="R$ 1.000">
+      <p><label>Descrição</label></p>
+        <input id="event_description" type="text" name="event[description]" placeholder="Passando por Orlando e Nova York">
+
+      <input type="submit" value="Criar">
+    </form>
+  </div>
+</body>
