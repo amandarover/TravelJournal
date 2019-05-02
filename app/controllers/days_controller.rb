@@ -12,7 +12,7 @@ class DaysController < ApplicationController
 
     while current_ordinal_day < travel_duration_in_days
       day_travel = create_day(travel, current_date)
-      travel_days << day_travel
+      travel_days << day_travel # am I saving the travel_days in travel?
       current_ordinal_day += 1
       current_date += 1.day
     end
