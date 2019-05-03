@@ -4,8 +4,14 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @travel = Travel.find(travel_id)
     @day = Day.find(day_id)
+    @travel = Travel.find(travel_id)
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+    @day = Day.find(@event.day_id)
+    @travel_id = @day.travel_id
   end
 
   def create
@@ -19,6 +25,23 @@ class EventsController < ApplicationController
       logger.info("EventsController: Error to create event with params| #{event_params}")
       render new_travel_day_event_path(travel_id, day_id)
     end
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    # TODO: verify if exist params to update (to not do a useless update) (Rails do that?)
+    raise invalid_dates_error_message unless validate_event_time(@event.starting_time, @event.ending_time)
+    byebug
+    if @event.update(event_params)
+      redirect_to travel_path(travel_id)
+    else
+      logger.info("eventsController: Error to update event with params|
+        #{event_params}")
+    end
+  rescue StandardError => e
+    logger.info("eventsController: Error to update event days: #{e.message}")
+    @event.errors.add(:base, invalid_dates_error_message)
+    # The eror printed on html will not work because I am doing a redirect
   end
 
   def destroy

@@ -1,0 +1,43 @@
+<body>
+  <div class="container">
+    <form id="edit_event" action="<%= travel_day_event_path(@travel_id, @day.id, @event.id) %>" accept-charset="UTF-8" method="post">
+      <input type="hidden" name="_method" value="PUT">
+      <h1>Editar Evento:</h1>
+
+      <% if @event.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            Ops! Tivemos <%= pluralize(@event.errors.count, "erro") %>.
+            Verifique os valores inseridos e tente novamente.
+          </h2>
+          <ul>
+            <% @event.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <h3>Dia <%= @day.date.strftime('%d/%m/%Y') %></h3>
+      <p><label>Nome</label></p>
+        <input id="event_title" type="text" value="<%= @event.name %>" name="event[name]" placeholder="Check-in">
+      <p><label>Categoria</label></p>
+        <input id="category" type="text" value="<%= @event.category %>" name="event[category]" placeholder="Estadia">
+      <p><label>Endereço</label></p>
+        <input id="event_address" type="text" value="<%= @event.address %>" name="event[address]" placeholder="Rua Maria da silva">
+
+      <p><label>Horário de ínicio</label></p>
+        <input id="event_starting_time" type="time" value="<%= @event.starting_time %>" name="event[starting_time]">
+      <p><label>Horário de término</label></p>
+        <input id="event_ending_time" type="time" value="<%= @event.ending_time %>" name="event[ending_time]">
+
+      <p><label>Preço</label></p>
+        <input id="event_pricing" type="text" value="<%= @event.pricing %>" name="event[pricing]" placeholder="1.000">
+        <%#  TODO: Add price choice, dolar or reais %>
+      <p><label>Descrição</label></p>
+        <input id="event_description" type="text" value="<%= @event.description %>" name="event[description]" placeholder="Hotel em NY">
+
+      <input type="submit" value="Editar">
+    </form>
+  </div>
+</body>
