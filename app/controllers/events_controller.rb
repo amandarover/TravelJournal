@@ -48,7 +48,7 @@ class EventsController < ApplicationController
   end
 
   def validate_event_time(init_date, final_date)
-    init_date <= final_date
+    init_date.to_s <= final_date.to_s
   end
 
   def invalid_dates_error_message
