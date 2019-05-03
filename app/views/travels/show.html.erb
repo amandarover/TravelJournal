@@ -68,7 +68,11 @@
 
           <p><strong>Descrição:</strong>
           <%= event.description %></p>
-          <%= link_to 'Deletar evento', "/travels/#{@travel.id}/days/#{day.id}/events/#{event.id}", method: :delete %>
+          <%= link_to 'Deletar',
+              travel_day_event_path(@travel.id, day.id, event.id),
+                method: :delete,
+                data: { confirm: 'Você tem certeza?' } %>
+          <%= link_to 'Editar', edit_travel_day_event_path(@travel.id, day.id, event.id) %>
         </td>
       <% end %>
     </tr>
