@@ -24,7 +24,6 @@
     <%= @travel.description %>
   </p>
 
-  <h2>Dias</h2>
   <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
     <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
     <input name="add_on_last_day" value="true" style="display: none;">
@@ -38,10 +37,13 @@
   </form>
 
   <% if @travel.days.count > 1 %>
-    <td><%= link_to 'Deletar o primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"), method: :delete %></td>
-    <td><%= link_to 'Deletar o último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"), method: :delete %></td>
+    <td><%= link_to 'Deletar o primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"),
+      method: :delete, :class =>"input-button" %></td>
+    <td><%= link_to 'Deletar o último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"),
+      method: :delete, :class =>"input-button" %></td>
   <% end %>
 
+  <h2>Dias</h2>
   <table>
     <% @travel.days.order(:date).each do |day| %>
       <tr>
