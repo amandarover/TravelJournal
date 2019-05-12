@@ -7,11 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="topnav">
-    <a class="<%= 'active' if current_page?(root_url) %>" href="/">Dashboard</a>
-    <a class="<%= 'active' if current_page?(new_travel_url) %>" href="/travels/new">Nova Viagem</a>
-    <a class="<%= 'active' if current_page?(travels_url) %>" href="/travels">Lista de Viagens</a>
-  </div>
+  <header role="banner">
+  <nav id="navbar-primary" class="navbar" role="navigation">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a class="<%= 'active' if current_page?(root_url) %>" href="/">Dashboard</a></li>
+        <li><a class="<%= 'active' if current_page?(new_travel_url) %>" href="/travels/new">Nova Viagem</a></li>
+        <a href="/"><img src="/logo-medium-2.PNG" alt="Travel Journal" width=180px></a>
+        <li><a class="<%= 'active' if current_page?(travels_url) %>" href="/travels">Lista de Viagens</a></li>
+        <li><a class="<%= 'active' if current_page?(travels_url) %>" href="/travels">Lista de Viagens</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
 
 <%= yield %>
 
