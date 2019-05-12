@@ -15,12 +15,17 @@
         <td><%= travel.init_date.strftime('%d/%m/%Y') %></td>
         <td><%= travel.final_date.strftime('%d/%m/%Y') %></td>
         <td><%= travel.description %></td>
-        <td><%= link_to 'Show', travel_path(travel) %></td>
-        <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
-        <td><%= link_to 'Destroy',
-                  travel_path(travel),
-                    method: :delete,
-                    data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to 'Ver',
+                travel_path(travel),
+                  class: "input-button" %></td>
+        <td><%= link_to 'Editar',
+                edit_travel_path(travel),
+                  class: "input-button" %></td>
+        <td><%= link_to 'Deletar',
+                 travel_path(travel),
+                   method: :delete,
+                   data: { confirm: 'Você tem certeza?' },
+                   class: "input-button" %></td>
       </tr>
     <% end %>
   </table>

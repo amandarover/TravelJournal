@@ -76,7 +76,7 @@ input[type=text], input[type=date], input[type=time], select, textarea {
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit], .input-button {
+.input-button {
   background-color: $color-red-primary;
   color: $color-white;
   padding: 12px 20px;
@@ -87,7 +87,7 @@ input[type=submit], .input-button {
   display: inline-block;
 }
 /* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover, .input-button:hover {
+.input-button:hover {
   background-color: $color-red-secondary;
 }
 

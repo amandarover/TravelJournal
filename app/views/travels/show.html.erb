@@ -27,20 +27,22 @@
   <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
     <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
     <input name="add_on_last_day" value="true" style="display: none;">
-    <input type="submit" value="Criar dia no final"></a>
+    <input type="submit" value="Criar dia no final" class="input-button"></a>
   </form>
 
   <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
     <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
     <input name="add_on_first_day" value="true" style="display: none;">
-    <input type="submit" value="Criar dia no início"></a>
+    <input type="submit" value="Criar dia no início" class="input-button"></a>
   </form>
 
   <% if @travel.days.count > 1 %>
     <td><%= link_to 'Deletar o primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"),
-      method: :delete, :class =>"input-button" %></td>
+      method: :delete,
+      class: "input-button" %></td>
     <td><%= link_to 'Deletar o último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"),
-      method: :delete, :class =>"input-button" %></td>
+      method: :delete,
+      class: "input-button" %></td>
   <% end %>
 
   <h2>Dias</h2>
@@ -48,7 +50,9 @@
     <% @travel.days.order(:date).each do |day| %>
       <tr>
         <td><%= day.date.strftime('%d/%m') %></td>
-        <td><%= link_to 'Criar evento', new_travel_day_event_path(@travel.id, day.id)%></td>
+        <td><%= link_to 'Criar evento',
+                new_travel_day_event_path(@travel.id, day.id),
+                class: "input-button" %></td>
         <% day.events.order(:starting_time).each do |event| %>
           <td>
             <p><strong>Categoria:</strong>
@@ -74,8 +78,11 @@
             <%= link_to 'Deletar',
                 travel_day_event_path(@travel.id, day.id, event.id),
                   method: :delete,
-                  data: { confirm: 'Você tem certeza?' } %>
-            <%= link_to 'Editar', edit_travel_day_event_path(@travel.id, day.id, event.id) %>
+                  data: { confirm: 'Você tem certeza?' },
+                  class: "input-button" %>
+            <%= link_to 'Editar',
+                edit_travel_day_event_path(@travel.id, day.id, event.id),
+                  class: "input-button" %>
           </td>
         <% end %>
       </tr>
