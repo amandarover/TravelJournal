@@ -1,0 +1,209 @@
+$color-red-primary: #d73a31;
+$color-red-secondary: #bb001c;
+// $color-green: #00FF00;
+$color-blue-primary: #135589;
+// $color-light-gray: rgb(211, 211, 211);
+$color-light-gray-2: #f8f9fa;
+$color-light-gray-3: rgba(0, 0, 0, 0.534);
+$color-dark-gray: rgb(53, 53, 53);
+$color-white: white;;
+// $color-blue-secondary: #0000FF;
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+  background-color: $color-white;
+  background-image: url("fog-trees.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  line-height: 1; /* to reset the browser */
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], input[type=date], input[type=time], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    // margin-bottom: 16px; /* Bottom margin */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: $color-red-primary;
+    color: $color-white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: $color-red-secondary;
+}
+
+p {
+  padding-top: 3%;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+    border-radius: 5px;
+    background-color: $color-white;
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: 5% 5%;
+    margin-top: 5%;
+    align-content: center;
+}
+
+.navbar-nav {
+  background-color: $color-white;
+  text-align: center;
+}
+.navbar-nav > li {
+  display: inline-block;
+  float: none;
+}
+.navbar-nav > li > a {
+  float: left;
+  color: $color-light-gray-3;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+/* Change the color of links on hover */
+.navbar-nav > li > a:hover {
+    background-color: $color-red-secondary;
+    color: $color-white;
+}
+ol, ul {
+	list-style: none;
+}
+
+/* Style the tab buttons */
+.tablink {
+    background-color: #555;
+    color: $color-white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+    color: $color-white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+/* Style each tab content individually */ 
+#London {background-color:#f44336;}
+#Paris {background-color:#4CAF50;}
+#Tokyo {background-color:#2196F3;}
+#Oslo {background-color:#ff5722;}
+
+/* Style the form */
+.form_with_steps {
+  background-color: #ffffff;
+  // margin: 10px auto;
+  // padding: 5px;
+  // width: 80%;
+  // min-width: 30px;
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none; 
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
