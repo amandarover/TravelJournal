@@ -1,23 +1,23 @@
-<body>
+<%# <body>
   <div class="container">
     <form id="new_day" class="form_with_steps" action="/days" accept-charset="UTF-8" method="post">
-      <h1>CRIAÇÃO DE DIA (Não preciso dessa pagina)</h1>
+      <h1>CRIAÇÃO DE DIA (Não preciso dessa pagina)</h1> %>
 
-      <% if @day.errors.any? %>
-        <div id="error_explanation">
+      <%# <% if @day.errors.any? %>
+        <%# <div id="error_explanation">
           <h2>
-            Ops! Tivemos <%= pluralize(@day.errors.count, "erro") %>.
+            Ops! Tivemos <%= pluralize(@day.errors.count, "erro").
             Verifique os valores inseridos e tente novamente.
           </h2>
-          <ul>
-            <% @day.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+          <ul> %>
+            <%# <% @day.errors.full_messages.each do |msg| %>
+              <%# <li><%= msg %><%#</li>
+            <%# <% end %>
+          <%# </ul>
+        </div> %>
+      <%# <% end %>
 
-      <div class="tab">
+      <%# <div class="tab">
         <p><label>Tipo de evento:</label></p>
           <input id="day_title" type="text" name="day[name]" placeholder="Check-in/check-out hotel" oninput="this.className = ''">
       </div>
@@ -36,7 +36,7 @@
       </div>
 
       <%# <input type="submit" value="Criar"> %>
-      <div style="overflow:auto;">
+      <%# <div style="overflow:auto;">
         <div style="float:right;">
           <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
           <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
@@ -50,5 +50,5 @@
       </div>
     </form>
   </div>
-</body>
-<script src="/assets/form_with_steps.js"></script>
+</body> %>
+<%# <script src="/assets/form_with_steps.js"></script> %>
