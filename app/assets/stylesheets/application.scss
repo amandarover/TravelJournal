@@ -94,8 +94,6 @@ p {
     border-radius: 5px;
     background-color: $color-white;
     padding: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
     margin: 5% 5%;
     margin-top: 5%;
     align-content: center;
@@ -162,7 +160,8 @@ ol, ul {
 .form_with_steps {
   background-color: #ffffff;
   // margin: 10px auto;
-  // padding: 5px;
+  padding-left: 3%;
+  padding-right: 3%;
   // width: 80%;
   // min-width: 30px;
 }
