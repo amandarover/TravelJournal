@@ -7,6 +7,7 @@
         <div id="error_explanation">
           <h2>
             Ops! Tivemos <%= pluralize(@travel.errors.count, "erro") %>.
+            Verifique os valores inseridos e tente novamente.
           </h2>
           <ul>
             <% @travel.errors.full_messages.each do |msg| %>
@@ -34,5 +35,5 @@
   </div>
 </body>
 <%# TODO: Enter to submit %>
-<%# TODO: Dates should not me inconsistent %>
+<%# TODO: Dates should not be inconsistent %>
 <%# TODO: When with errors, print in every input box a red border %>
