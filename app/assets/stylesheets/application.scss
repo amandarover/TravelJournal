@@ -1,0 +1,167 @@
+$color-red-primary: #d73a31;
+$color-red-secondary: #bb001c;
+// $color-green: #00FF00;
+$color-blue-primary: #135589;
+// $color-light-gray: rgb(211, 211, 211);
+$color-light-gray-2: #f8f9fa;
+$color-light-gray-3: rgba(0, 0, 0, 0.534);
+$color-dark-gray: rgb(53, 53, 53);
+$color-white: white;
+// $color-blue-secondary: #0000FF;
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+  border-spacing: 0;
+}
+td {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+body {
+  background-color: $color-white;
+  background-image: url("fog-trees.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 1; /* to reset the browser */
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], input[type=date], input[type=time], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */  
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 1%; /* Add a top margin */
+  margin-bottom: 1%; /* Add a top margin */
+  // margin-bottom: 16px; /* Bottom margin */
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Style the submit button with a specific background color etc */
+.button-primary {
+  background-color: $color-red-primary;
+  color: $color-white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+/* When moving the mouse over the submit button, add a darker green color */
+.button-primary:hover {
+  background-color: $color-red-secondary;
+}
+
+
+h1, h2, h3 {
+  padding-bottom: 3%;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  padding-top: 3%;
+  font-size: 20px;
+}
+
+h3 {
+  padding-top: 3%;
+  font-size: 15px;
+}
+
+p {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+    border-radius: 5px;
+    background-color: $color-white;
+    padding: 5%;
+    margin: 5% 5%;
+    margin-top: 5%;
+    align-content: center;
+}
+
+.navbar-nav {
+  background-color: $color-white;
+  text-align: center;
+}
+.navbar-nav > li {
+  display: inline-block;
+  float: none;
+}
+.navbar-nav > li > a {
+  float: left;
+  color: $color-light-gray-3;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+/* Change the color of links on hover */
+.navbar-nav > li > a:hover {
+  background-color: $color-red-secondary;
+  color: $color-white;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-content-right {
+  align-content: right;
+}

@@ -1,12 +1,13 @@
 <body>
   <div class="container">
-    <form id="new_travel" class="form_with_steps" action="/travels" accept-charset="UTF-8" method="post">
+    <form id="new_travel" action="/travels" accept-charset="UTF-8" method="post">
       <h1>Criar nova Viagem:</h1>
 
       <% if @travel.errors.any? %>
         <div id="error_explanation">
           <h2>
             Ops! Tivemos <%= pluralize(@travel.errors.count, "erro") %>.
+            Verifique os valores inseridos e tente novamente.
           </h2>
           <ul>
             <% @travel.errors.full_messages.each do |msg| %>
@@ -16,42 +17,23 @@
         </div>
       <% end %>
 
-      <div class="tab">
-        <p><label>Nome da viagem</label></p>
-          <input id="travel_title" type="text" name="travel[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
-        <p><label>Para onde você vai?</label></p>
-          <input id="travel_destination" type="text" name="travel[destination]" placeholder="Orlando" oninput="this.className = ''">
-      </div>
+      <p><label>Nome da viagem</label></p>
+        <input id="travel_title" type="text" name="travel[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
+      <p><label>Para onde você vai?</label></p>
+        <input id="travel_destination" type="text" name="travel[destination]" placeholder="Orlando" oninput="this.className = ''">
 
-      <div class="tab">
-        <h3>Quando pretende viajar?</h3>
-        <p><label>Data de ínicio</label></p>
-          <input id="travel_init_date" type="date" name="travel[init_date]" oninput="this.className = ''">
-        <p><label>Data final</label></p>
-          <input id="travel_final_date" type="date" name="travel[final_date]" oninput="this.className = ''">
-      </div>
+      <p><label>Data de ínicio</label></p>
+        <input id="travel_init_date" type="date" name="travel[init_date]" oninput="this.className = ''">
+      <p><label>Data final</label></p>
+        <input id="travel_final_date" type="date" name="travel[final_date]" oninput="this.className = ''">
 
-      <div class="tab">
-        <p><label>Descrição</label></p>
-          <input id="travel_description" type="text" name="travel[description]" placeholder="Passando por Orlando e Nova York" oninput="this.className = ''">
-      </div>
+      <p><label>Descrição</label></p>
+        <input id="travel_description" type="text" name="travel[description]" placeholder="Passando por Orlando e Nova York" oninput="this.className = ''">
 
-      <%# <input type="submit" value="Criar"> %>
-      <div style="overflow:auto;">
-        <div style="float:right;">
-          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-        </div>
-      </div>
-
-      <div style="text-align:center;margin-top:40px;">
-        <span class="step"></span>
-        <span class="step"></span>
-        <span class="step"></span>
-      </div>
+      <input type="submit" value="Criar" class="button-primary">
     </form>
   </div>
 </body>
-<script src="/assets/form_with_steps.js"></script>
-<%# TODO: Enter to pass for the next step %>
-<%# TODO: Dates should not me inconsistent %>
+<%# TODO: Enter to submit %>
+<%# TODO: Dates should not be inconsistent %>
+<%# TODO: When with errors, print in every input box a red border %>

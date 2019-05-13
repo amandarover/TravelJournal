@@ -1,80 +1,41 @@
-<p>
-  <strong>Nome:</strong>
-  <%= @travel.name %>
-</p>
+<div class="container">
+  <h1><%= @travel.name %></h1>
+  <p><%= @travel.destination %></p>
+  <p>
+    <%= @travel.init_date.strftime('%d/%m') %>
+     - 
+    <%= @travel.final_date.strftime('%d/%m') %>
+  </p>
+  <p><%= @travel.description %></p>
 
-<p>
-  <strong>Destino:</strong>
-  <%= @travel.destination %>
-</p>
+  <h2>Dias</h2>
+  <table>
+    <% @travel.days.order(:date).each do |day| %>
+      <tr>
+        <td><a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a></td>
+        <td><p><strong><%= day.events.count %></strong></td>
+      </tr>
+    <% end %>
+  </table>
 
-<p>
-  <strong>Data de início:</strong>
-  <%= @travel.init_date.strftime('%d/%m/%Y') %>
-</p>
- 
-<p>
-  <strong>Data final</strong>
-  <%= @travel.final_date.strftime('%d/%m/%Y') %>
-</p>
+  <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
+    <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
+    <input name="add_on_last_day" value="true" style="display: none;">
+    <input type="submit" value="Criar dia no final" class="button-primary"></a>
+  </form>
 
-<p>
-  <strong>Descrição</strong>
-  <%= @travel.description %>
-</p>
+  <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
+    <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
+    <input name="add_on_first_day" value="true" style="display: none;">
+    <input type="submit" value="Criar dia no início" class="button-primary"></a>
+  </form>
 
-<h2>Dias</h2>
-<form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
-  <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
-  <input name="add_on_last_day" value="true" style="display: none;">
-  <input type="submit" value="Criar dia no final"></a>
-</form>
-
-<form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
-  <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
-  <input name="add_on_first_day" value="true" style="display: none;">
-  <input type="submit" value="Criar dia no início"></a>
-</form>
-
-<% if @travel.days.count > 1 %>
-  <td><%= link_to 'Deletar o primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"), method: :delete %></td>
-  <td><%= link_to 'Deletar o último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"), method: :delete %></td>
-<% end %>
-
-<table>
-  <% @travel.days.order(:date).each do |day| %>
-    <tr>
-      <td><%= day.date.strftime('%d/%m') %></td>
-      <td><%= link_to 'Criar evento', new_travel_day_event_path(@travel.id, day.id)%></td>
-      <% day.events.order(:starting_time).each do |event| %>
-        <td>
-          <p><strong>Categoria:</strong>
-          <%= event.category %></p>
-
-          </p><strong>Nome:</strong>
-          <%= event.name %></p>
-
-          <p><strong>Endereço:</strong>
-          <%= event.address %></p>
-
-          <p><strong>Horário inicial:</strong>
-          <%= event.starting_time %></p>
-
-          <p><strong>Horário de término:</strong>
-          <%= event.ending_time %></p>
-
-          <p><strong>Preço:</strong>
-          <%= event.pricing %></p>
-
-          <p><strong>Descrição:</strong>
-          <%= event.description %></p>
-          <%= link_to 'Deletar',
-              travel_day_event_path(@travel.id, day.id, event.id),
-                method: :delete,
-                data: { confirm: 'Você tem certeza?' } %>
-          <%= link_to 'Editar', edit_travel_day_event_path(@travel.id, day.id, event.id) %>
-        </td>
-      <% end %>
-    </tr>
+  <% if @travel.days.count > 1 %>
+    <td><%= link_to 'Deletar o primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"),
+      method: :delete,
+      class: "button-primary" %></td>
+    <td><%= link_to 'Deletar o último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"),
+      method: :delete,
+      class: "button-primary" %></td>
   <% end %>
-</table>
+</div>

@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     # TODO: verify if exist params to update (to not do a useless update) (Rails do that?)
     raise invalid_dates_error_message unless validate_event_time(@event.starting_time, @event.ending_time)
-    byebug
+
     if @event.update(event_params)
       redirect_to travel_path(travel_id)
     else

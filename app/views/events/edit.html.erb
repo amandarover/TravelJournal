@@ -18,7 +18,7 @@
         </div>
       <% end %>
 
-      <h3>Dia <%= @day.date.strftime('%d/%m/%Y') %></h3>
+      <h2><strong><%= @day.date.strftime('%A') %>, <%= @day.date.strftime('%d') %> de <%= @day.date.strftime('%B') %></strong></h2>
       <p><label>Nome</label></p>
         <input id="event_title" type="text" value="<%= @event.name %>" name="event[name]" placeholder="Check-in">
       <p><label>Categoria</label></p>
@@ -37,7 +37,7 @@
       <p><label>Descrição</label></p>
         <input id="event_description" type="text" value="<%= @event.description %>" name="event[description]" placeholder="Hotel em NY">
 
-      <input type="submit" value="Editar">
+      <input type="submit" value="Editar" class="button-primary">
     </form>
   </div>
 </body>

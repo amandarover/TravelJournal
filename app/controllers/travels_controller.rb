@@ -51,6 +51,8 @@ class TravelsController < ApplicationController
   end
 
   def show
+    # Catch only travel params and days params,
+    # there is no need to catch events params, only events count
     @travel = Travel.find(params[:id])
   end
 
