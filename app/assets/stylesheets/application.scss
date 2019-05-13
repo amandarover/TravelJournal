@@ -6,7 +6,7 @@ $color-blue-primary: #135589;
 $color-light-gray-2: #f8f9fa;
 $color-light-gray-3: rgba(0, 0, 0, 0.534);
 $color-dark-gray: rgb(53, 53, 53);
-$color-white: white;;
+$color-white: white;
 // $color-blue-secondary: #0000FF;
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -152,7 +152,10 @@ ol, ul {
 }
 /* Change the color of links on hover */
 .navbar-nav > li > a:hover {
-    background-color: $color-red-secondary;
-    color: $color-white;
+  background-color: $color-red-secondary;
+  color: $color-white;
 }
 
+.align-center {
+  text-align: center;
+}

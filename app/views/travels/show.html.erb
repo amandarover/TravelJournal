@@ -1,28 +1,22 @@
 <div class="container">
+  <h1><%= @travel.name %></h1>
+  <p><%= @travel.destination %></p>
   <p>
-    <strong>Nome:</strong>
-    <%= @travel.name %>
+    <%= @travel.init_date.strftime('%d/%m') %>
+     - 
+    <%= @travel.final_date.strftime('%d/%m') %>
   </p>
+  <p><%= @travel.description %></p>
 
-  <p>
-    <strong>Destino:</strong>
-    <%= @travel.destination %>
-  </p>
-
-  <p>
-    <strong>Data de início:</strong>
-    <%= @travel.init_date.strftime('%d/%m/%Y') %>
-  </p>
-  
-  <p>
-    <strong>Data final</strong>
-    <%= @travel.final_date.strftime('%d/%m/%Y') %>
-  </p>
-
-  <p>
-    <strong>Descrição</strong>
-    <%= @travel.description %>
-  </p>
+  <h2>Dias</h2>
+  <table>
+    <% @travel.days.order(:date).each do |day| %>
+      <tr>
+        <td><a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a></td>
+        <td><p><strong><%= day.events.count %></strong></td>
+      </tr>
+    <% end %>
+  </table>
 
   <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
     <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
@@ -44,17 +38,4 @@
       method: :delete,
       class: "button-primary" %></td>
   <% end %>
-
-  <h2>Dias</h2>
-  <table>
-    <% @travel.days.order(:date).each do |day| %>
-      <tr>
-        <td>
-          <%= day.date.strftime('%d/%m') %>
-          <p><strong>Eventos: </strong>
-          <%= day.events.count %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
 </div>

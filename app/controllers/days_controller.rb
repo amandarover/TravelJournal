@@ -34,6 +34,10 @@ class DaysController < ApplicationController
     redirect_to travel_path(@travel.id)
   end
 
+  def show
+    @day = Day.find(params[:id])
+  end
+
   def update_days(travel)
     raise invalid_dates_error_message unless validate_travel_date(travel.init_date, travel.final_date)
 
