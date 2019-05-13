@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
+  get 'travels/index'
 
-  root 'dashboard#index'
+  root 'travels#index'
 
   resources :travels do
     resources :days do

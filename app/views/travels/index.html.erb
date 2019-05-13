@@ -1,20 +1,22 @@
 <div class="container">
-  <h1>Listing travels</h1>
-
   <table>
     <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th></th>
+      <td><h1>Viagens</h1></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><a class="button-primary align-content-right" href="/travels/new">Nova Viagem</a></td>
     </tr>
 
     <% @travels.each do |travel| %>
       <tr>
         <td><%= travel.name %></td>
         <td><%= travel.destination %></td>
-        <td><%= travel.init_date.strftime('%d/%m/%Y') %></td>
-        <td><%= travel.final_date.strftime('%d/%m/%Y') %></td>
-        <td><%= travel.description %></td>
+        <td>
+          <%= travel.init_date.strftime('%d/%m') %> - <%= travel.final_date.strftime('%d/%m') %>
+        </td>
+        <%# <td><%= travel.description %><%#</td> %>
         <td><%= link_to 'Ver',
                 travel_path(travel),
                   class: "button-primary" %></td>
