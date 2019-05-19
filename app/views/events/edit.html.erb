@@ -3,7 +3,6 @@
     <form class="needs-validation" id="edit_event" action="<%= travel_day_event_path(@travel_id, @day.id, @event.id) %>" accept-charset="UTF-8" method="post" novalidate>
       <input type="hidden" name="_method" value="PUT">
       <h1>Editar Evento:</h1>
-
       <h2><strong><%= @day.date.strftime('%A') %>, <%= @day.date.strftime('%d') %> de <%= @day.date.strftime('%B') %></strong></h2>
       <div class="form-group">
         <label>Nome</label>
