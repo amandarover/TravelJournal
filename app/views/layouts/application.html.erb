@@ -3,8 +3,8 @@
 <head>
   <title>Travel Journal</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'days', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'days', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,13 +16,21 @@
         <li><a href="/travels/new">Nova Viagem</a></li>
         <a href="/"><img src="/logo-medium-2.PNG" alt="Travel Journal" width=180px></a>
         <li><a href="/">Perfil</a></li>
-        <li><a href="/">Dashboard</a></li>
+        <li><a href="/">Home</a></li>
       </ul>
     </div>
   </nav>
   </header>
-
-<%= yield %>
-
+  <div>
+    <% if current_user %>
+      Signed in as <strong><%= current_user.name %></strong>!
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <% else %>
+      <%= link_to "Sign in com Google", "/auth/google_oauth2", id: "sign_in" %>
+    <% end %>
+  </div>
+  <div>
+  <%= yield %>
+  </div>
 </body>
 </html>

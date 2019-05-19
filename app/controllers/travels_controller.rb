@@ -1,9 +1,10 @@
 # Class of Travels
 class TravelsController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_action :authenticate
 
   def index
-    @travels = Travel.all
+    @travels = Travel.where(user_id: current_user.id)
   end
 
   def new
@@ -16,6 +17,7 @@ class TravelsController < ApplicationController
 
   def create
     @travel = Travel.new(travel_params)
+    @travel.user_id = current_user.id
     if @travel.save
       DaysController.new.create_travel_days(@travel)
       redirect_to travel_path(@travel.id)
