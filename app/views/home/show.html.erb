@@ -2,6 +2,10 @@
   <div class="container">
     <h1>Perfil</h1>
 
-    <p><%= current_user.id %></p>
-    <p><%= current_user.name %></p>
+    <% if current_user %>
+      <p><%= current_user.id %></p>
+      <p><%= current_user.name %></p>
+    <% else %>
+      <p>Você não tem uma conta</p>
+    <% end %>
 </body>

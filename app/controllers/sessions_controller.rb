@@ -11,6 +11,6 @@ class SessionsController < ApplicationController
   end
 
   def login
-    render '_login.html.erb'
+    render 'login.html.erb'
   end
 end

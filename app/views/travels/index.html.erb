@@ -16,7 +16,6 @@
         <td>
           <%= travel.init_date.strftime('%d/%m') %> - <%= travel.final_date.strftime('%d/%m') %>
         </td>
-        <%# <td><%= travel.description %><%#</td> %>
         <td><%= link_to 'Ver',
                 travel_path(travel),
                   class: "button-primary" %></td>
