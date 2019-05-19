@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/show'
+
   get 'travels/index'
 
   root 'travels#index'
