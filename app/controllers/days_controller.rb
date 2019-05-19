@@ -1,6 +1,7 @@
 # Day class
 class DaysController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_action :authenticate
 
   def create_travel_days(travel)
     raise invalid_dates_error_message unless validate_travel_date(travel.init_date, travel.final_date)

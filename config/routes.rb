@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   get 'travels/index'
 
-  # root 'travels#index'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'login', to: 'sessions#login', as: 'login'
 
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]

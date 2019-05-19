@@ -1,0 +1,9 @@
+<div class="container">
+  <p>Sorry, first you need to log in:</p>
+  <% if current_user %>
+    <p>Signed in as <strong><%= current_user.name %></strong>!</p>
+    <p><%= link_to "Sign out", signout_path, id: "sign_out" %></p>
+  <% else %>
+    <p><%= link_to "Sign in com Google", "/auth/google_oauth2", id: "sign_in" %></p>
+  <% end %>
+</div>

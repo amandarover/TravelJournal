@@ -1,6 +1,7 @@
 # Class of Travels
 class TravelsController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_action :authenticate
 
   def index
     @travels = Travel.all

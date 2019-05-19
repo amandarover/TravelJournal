@@ -9,4 +9,8 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+
+  def login
+    render '_login.html.erb'
+  end
 end
