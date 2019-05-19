@@ -1,27 +1,40 @@
 <body>
   <div class="container">
+
     <form id="new_event" action="<%= travel_day_events_path(@travel.id, @day.id) %>" accept-charset="UTF-8" method="post">
       <h1>Criar novo Evento:</h1>
+      <%= render 'events/error_messages' %>
 
       <h3>Dia <%= @day.date.strftime('%d/%m/%Y') %></h3>
-      <p><label>Nome</label></p>
+      <div class="form-group">
+        <label>Nome</label>
         <input id="event_title" type="text" name="event[name]" placeholder="Check-in">
-      <p><label>Categoria</label></p>
+      </div>
+      <div class="form-group">
+        <label>Categoria</label>
         <input id="category" type="text" name="event[category]" placeholder="Estadia">
-      <p><label>Endereço</label></p>
+      </div>
+      <div class="form-group">
+        <label>Endereço</label>
         <input id="event_address" type="text" name="event[address]" placeholder="Rua Maria da silva">
-
-      <p><label>Horário de ínicio</label></p>
+      </div>
+      <div class="form-group">
+        <label>Horário de ínicio</label>
         <input id="event_starting_time" type="time" name="event[starting_time]">
-      <p><label>Horário de término</label></p>
+      </div>
+      <div class="form-group">
+        <label>Horário de término</label>
         <input id="event_ending_time" type="time" name="event[ending_time]">
-
-      <p><label>Preço</label></p>
+      </div>
+      <div class="form-group">
+        <label>Preço</label>
         <input id="event_pricing" type="text" name="event[pricing]" placeholder="1.000">
         <%#  TODO: Add price choice, dolar or reais %>
-      <p><label>Descrição</label></p>
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
         <input id="event_description" type="text" name="event[description]" placeholder="Hotel em NY">
-
+      </div>
       <input type="submit" value="Criar" class="button-primary">
     </form>
   </div>
