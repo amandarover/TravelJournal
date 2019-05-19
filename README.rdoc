@@ -1,5 +1,3 @@
-= Travel Journal
-
 Hello everyone!
 
 This is a WIP for a Travel Organizer, called the Travel Journal!
@@ -17,3 +15,10 @@ Add the following commands to see better:
 
 * To see all the columns from a table:
 <tt>.schema events</tt>
+
+= Google API login
+(In the future, add the production uri)
+
+https://console.developers.google.com/apis/credentials/oauthclient/538283490345-i7ev0dcehunj8ajj3tgt7mkcdloqcsm7.apps.googleusercontent.com?project=travel-journal-241114
+
+Tutorial in : https://richonrails.com/articles/google-authentication-in-ruby-on-rails
