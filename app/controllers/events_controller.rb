@@ -21,28 +21,31 @@ class EventsController < ApplicationController
 
     @event.day_id = day_id
     if @event.save
-      redirect_to travel_path(travel_id)
+      redirect_to travel_day_path(travel_id, day_id)
     else
       logger.info("EventsController: Error to create event with params| #{event_params}")
-      render new_travel_day_event_path(travel_id, day_id)
+      redirect_to new_travel_day_event_path(travel_id, day_id)
     end
+  rescue StandardError => e
+    logger.info("EVENTS_CONTROLLER: Error to create_event: #{e.message}")
+    @event.errors.add(:base, invalid_dates_error_message)
+    redirect_to new_travel_day_event_path(travel_id, day_id)
   end
 
   def update
     @event = Event.find(params[:id])
     # TODO: verify if exist params to update (to not do a useless update) (Rails do that?)
     raise invalid_dates_error_message unless validate_event_time(@event.starting_time, @event.ending_time)
-
     if @event.update(event_params)
-      redirect_to travel_path(travel_id)
+      redirect_to travel_day_path(travel_id, day_id)
     else
-      logger.info("eventsController: Error to update event with params|
-        #{event_params}")
+      @event.errors.add(:base, invalid_dates_error_message)
+      redirect_to edit_travel_day_event_path(travel_id, day_id, @event.id)
     end
   rescue StandardError => e
     logger.info("eventsController: Error to update event days: #{e.message}")
     @event.errors.add(:base, invalid_dates_error_message)
-    # The eror printed on html will not work because I am doing a redirect
+    redirect_to edit_travel_day_event_path(travel_id, day_id, @event.id)
   end
 
   def destroy
