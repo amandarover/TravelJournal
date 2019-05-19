@@ -140,6 +140,11 @@ ol, ul {
   background-color: $color-white;
   text-align: center;
 }
+.navbar-nav > .login-link {
+  padding: 1%;
+  margin-right: 3%;
+  text-align: right;
+}
 .navbar-nav > li {
   display: inline-block;
   float: none;

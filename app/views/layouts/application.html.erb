@@ -10,25 +10,23 @@
 <body>
   <header role="banner">
   <nav id="navbar-primary" class="navbar" role="navigation">
-    <div class="container-fluid">
       <ul class="nav navbar-nav">
+        <div class="login-link">
+          <% if current_user %>
+            Signed in as <strong><%= current_user.name %></strong>!
+            <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          <% else %>
+            <%= link_to "Sign in com Google", "/auth/google_oauth2", id: "sign_in" %>
+          <% end %>
+        </div>
         <li><a href="/travels">Viagens</a></li>
         <li><a href="/travels/new">Nova Viagem</a></li>
         <a href="/"><img src="/logo-medium-2.PNG" alt="Travel Journal" width=180px></a>
         <li><a href="/">Perfil</a></li>
         <li><a href="/">Home</a></li>
       </ul>
-    </div>
   </nav>
   </header>
-  <div>
-    <% if current_user %>
-      Signed in as <strong><%= current_user.name %></strong>!
-      <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    <% else %>
-      <%= link_to "Sign in com Google", "/auth/google_oauth2", id: "sign_in" %>
-    <% end %>
-  </div>
   <div>
   <%= yield %>
   </div>
