@@ -1,41 +1,33 @@
 <body>
   <div class="container">
-    <form id="edit_travel" action="/travels/<%= @travel.id %>" accept-charset="UTF-8" method="post">
+    <form class="needs-validation" id="edit_travel" action="/travels/<%= @travel.id %>" accept-charset="UTF-8" method="post" novalidate>
       <input type="hidden" name="_method" value="PUT">
       <h1>Editar Viagem:</h1>
-
-      <% if @travel.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            Ops! Tivemos <%= pluralize(@travel.errors.count, "erro") %>.
-            Verifique os valores inseridos e tente novamente.
-          </h2>
-          <ul>
-            <% @travel.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <p><label>Nome da viagem</label></p>
-        <input id="travel_title" type="text" value="<%= @travel.name %>" name="travel[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
-      <p><label>Para onde você vai?</label></p>
-        <input id="travel_destination" type="text" value="<%= @travel.destination %>" name="travel[destination]" placeholder="Orlando" oninput="this.className = ''">
-
-      <p><label>Data de ínicio</label></p>
-        <input id="travel_init_date" type="date" value="<%= @travel.init_date.strftime('%Y-%m-%d') %>" name="travel[init_date]" readonly oninput="this.className = ''">
-      <p><label>Data final</label></p>
-        <input id="travel_final_date" type="date" value="<%= @travel.final_date.strftime('%Y-%m-%d') %>" name="travel[final_date]" readonly oninput="this.className = ''">
-
-      <p><label>Descrição</label></p>
-        <input id="travel_description" type="text" value="<%= @travel.description %>" name="travel[description]" placeholder="Passando por Orlando e Nova York" oninput="this.className = ''">
-
+      <div class="form-group">
+        <label>Nome da viagem</label>
+        <input class="form-control" id="travel_title" type="text" value="<%= @travel.name %>" name="travel[name]" placeholder="Viagem de formatura!" required>
+        <div class="valid-feedback">
+      </div>
+      <div class="form-group">
+        <label>Qual o seu destino?</label>
+        <input id="travel_destination" type="text" value="<%= @travel.destination %>" name="travel[destination]" placeholder="Orlando">
+      </div>
+      <div class="form-group">
+        <label>Data de ínicio</label>
+        <input class="form-control" id="travel_init_date" type="date" value="<%= @travel.init_date.strftime('%Y-%m-%d') %>" name="travel[init_date]" readonly required>
+        <div class="valid-feedback">
+      </div>
+      <div class="form-group">
+        <label>Data final</label>
+        <input class="form-control" id="travel_final_date" type="date" value="<%= @travel.final_date.strftime('%Y-%m-%d') %>" name="travel[final_date]" readonly required>
+        <div class="valid-feedback">
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
+        <input id="travel_description" type="text" value="<%= @travel.description %>" name="travel[description]" placeholder="Passando por Orlando e Nova York">
+      </div>
       <input type="submit" value="Editar" class="button-primary">
     </form>
   </div>
 </body>
-<%# TODO: Enter to submit %>
 <%# TODO: Dates should not be inconsistent %>
-<%# TODO: When with errors, print in every input box a red border %>
-<%# TODO: When editing, I can leave a blank value and it's work, but it should leave a blank error %>
