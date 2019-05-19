@@ -1,5 +1,6 @@
 # Travel model
 class Travel < ActiveRecord::Base
+  belongs_to :user
   has_many :days, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :destination, presence: true
