@@ -1,18 +1,20 @@
 <body>
   <div class="container">
 
-    <form id="new_event" action="<%= travel_day_events_path(@travel.id, @day.id) %>" accept-charset="UTF-8" method="post">
+    <form class="needs-validation" id="new_event" action="<%= travel_day_events_path(@travel.id, @day.id) %>" accept-charset="UTF-8" method="post" novalidate>
       <h1>Criar novo Evento:</h1>
       <%= render 'events/error_messages' %>
 
       <h3>Dia <%= @day.date.strftime('%d/%m/%Y') %></h3>
       <div class="form-group">
         <label>Nome</label>
-        <input id="event_title" type="text" name="event[name]" placeholder="Check-in">
+        <input class="form-control" id="event_title" type="text" name="event[name]" placeholder="Check-in" required>
+        <div class="valid-feedback">
       </div>
       <div class="form-group">
         <label>Categoria</label>
-        <input id="category" type="text" name="event[category]" placeholder="Estadia">
+        <input class="form-control" id="category" type="text" name="event[category]" placeholder="Estadia" required>
+        <div class="valid-feedback">
       </div>
       <div class="form-group">
         <label>Endereço</label>
@@ -20,16 +22,20 @@
       </div>
       <div class="form-group">
         <label>Horário de ínicio</label>
-        <input id="event_starting_time" type="time" name="event[starting_time]">
+        <input class="form-control" id="event_starting_time" type="time" name="event[starting_time]" required>
+        <div class="valid-feedback">
       </div>
       <div class="form-group">
         <label>Horário de término</label>
-        <input id="event_ending_time" type="time" name="event[ending_time]">
+        <input class="form-control" id="event_ending_time" type="time" name="event[ending_time]" required>
+        <div class="valid-feedback">
       </div>
       <div class="form-group">
         <label>Preço</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-text">R$</div>
+        </div>
         <input id="event_pricing" type="text" name="event[pricing]" placeholder="1.000">
-        <%#  TODO: Add price choice, dolar or reais %>
       </div>
       <div class="form-group">
         <label>Descrição</label>

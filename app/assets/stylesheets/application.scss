@@ -1,3 +1,4 @@
+@import "bootstrap";
 $color-red-primary: #d73a31;
 $color-red-secondary: #bb001c;
 // $color-green: #00FF00;
@@ -98,6 +99,13 @@ input.invalid {
   background-color: $color-red-secondary;
 }
 
+.align-center {
+  text-align: center;
+}
+
+.align-content-right {
+  align-content: right;
+}
 
 h1, h2, h3 {
   padding-bottom: 3%;
@@ -124,16 +132,6 @@ p {
 
 ol, ul {
 	list-style: none;
-}
-
-/* Add a background color and some padding around the form */
-.container {
-    border-radius: 5px;
-    background-color: $color-white;
-    padding: 5%;
-    margin: 5% 5%;
-    margin-top: 5%;
-    align-content: center;
 }
 
 .navbar-nav {
@@ -163,10 +161,29 @@ ol, ul {
   color: $color-white;
 }
 
-.align-center {
-  text-align: center;
+.container {
+  border-radius: 5px;
+  background-color: $color-white;
+  padding: 5%;
+  margin: 5% 5%;
+  margin-top: 5%;
+  align-content: center;
 }
 
-.align-content-right {
-  align-content: right;
+/* Forms */
+#error_message {
+  color: red;
 }
+
+#error_message > ul {
+  color: red;
+  margin: 0 0 30px 0;
+}
+
+// .field_with_errors {
+//   @extend .has-error;
+// }
+
+// .field_with_errors > .form-control {
+//   color: #d73a31;
+// }
