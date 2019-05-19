@@ -12,14 +12,25 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get 'login', to: 'sessions#login', as: 'login'
 
-  resources :sessions, only: [:create, :destroy]
+  resources :sessions,
+            only: [
+              :create,
+              :destroy
+            ]
   resource :home, only: [:show]
 
   root to: 'home#show'
 
   resources :travels do
-    resources :days do
-      resources :events
+    resources :days, only: [:show] do
+      resources :events,
+                only: [
+                  :create,
+                  :new,
+                  :edit,
+                  :update,
+                  :destroy
+                ]
     end
   end
 
