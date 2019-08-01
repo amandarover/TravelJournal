@@ -85,10 +85,14 @@ body {
 .button-row {
   padding: 1%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #bb001c;
 }
-
+.btn-primary {
+  flex: 1;
+  display: flex;
+}
 .site-navbar .site-navigation .site-menu > li {
     display: inline-block;
 }
