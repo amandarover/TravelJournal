@@ -1,9 +1,9 @@
 <body>
-  <div class="container-text">
+  <div class="container">
     <h1>Perfil</h1>
 
     <% if current_user %>
-      <p><%= current_user.id %></p>
+      <p>ID: <%= current_user.id %></p>
       <p><%= current_user.name %></p>
     <% else %>
       <p>Você não tem uma conta</p>
