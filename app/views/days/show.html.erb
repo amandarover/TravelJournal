@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-text">
 
   <td>
     <div class="h1-date">
@@ -12,7 +12,7 @@
   </td>
 
   <% @day.events.order(:starting_time).each do |event| %>
-    <div class="card-container">
+    <div class="card-container-text>
       <div class="align-center"><strong><%= event.name %></strong></div>
       <%= event.starting_time %> - <%= event.ending_time %>
 

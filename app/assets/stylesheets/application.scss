@@ -1,3 +1,5 @@
+@import 'bootstrap';
+
 $color-red-primary: #d73a31;
 $color-red-secondary: #bb001c;
 // $color-green: #00FF00;
@@ -65,69 +67,69 @@ body {
   line-height: 1; /* to reset the browser */
 }
 
-/* Style inputs with type="text", select elements and textareas */
-input[type=text], input[type=date], input[type=time], select, textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */  
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 1%; /* Add a top margin */
-  margin-bottom: 1%; /* Add a top margin */
-  // margin-bottom: 16px; /* Bottom margin */
-}
+// /* Style inputs with type="text", select elements and textareas */
+// input[type=text], input[type=date], input[type=time], select, textarea {
+//   width: 100%; /* Full width */
+//   padding: 12px; /* Some padding */  
+//   border: 1px solid #ccc; /* Gray border */
+//   border-radius: 4px; /* Rounded borders */
+//   box-sizing: border-box; /* Make sure that padding and width stays in place */
+//   margin-top: 1%; /* Add a top margin */
+//   margin-bottom: 1%; /* Add a top margin */
+//   // margin-bottom: 16px; /* Bottom margin */
+// }
 
-/* Mark input boxes that gets an error on validation: */
-input.invalid {
-  background-color: #ffdddd;
-}
+// /* Mark input boxes that gets an error on validation: */
+// input.invalid {
+//   background-color: #ffdddd;
+// }
 
-/* Style the submit button with a specific background color etc */
-.button-primary {
-  background-color: $color-red-primary;
-  color: $color-white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-}
-/* When moving the mouse over the submit button, add a darker green color */
-.button-primary:hover {
-  background-color: $color-red-secondary;
-}
+// /* Style the submit button with a specific background color etc */
+// .button-primary {
+//   background-color: $color-red-primary;
+//   color: $color-white;
+//   padding: 12px 20px;
+//   border: none;
+//   border-radius: 4px;
+//   text-decoration: none;
+//   cursor: pointer;
+//   display: inline-block;
+// }
+// /* When moving the mouse over the submit button, add a darker green color */
+// .button-primary:hover {
+//   background-color: $color-red-secondary;
+// }
 
 
-h1, h2, h3 {
-  padding-bottom: 3%;
-}
+// h1, h2, h3 {
+//   padding-bottom: 3%;
+// }
 
-h1 {
-  font-size: 25px;
-}
+// h1 {
+//   font-size: 25px;
+// }
 
-h2 {
-  padding-top: 3%;
-  font-size: 20px;
-}
+// h2 {
+//   padding-top: 3%;
+//   font-size: 20px;
+// }
 
-h3 {
-  padding-top: 3%;
-  font-size: 15px;
-}
+// h3 {
+//   padding-top: 3%;
+//   font-size: 15px;
+// }
 
-p {
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
+// p {
+//   padding-top: 1%;
+//   padding-bottom: 1%;
+// }
 
-ol, ul {
-	list-style: none;
-}
+// ol, ul {
+// 	list-style: none;
+// }
 
-/* Add a background color and some padding around the form */
-.container {
+// /* Add a background color and some padding around the form */
+.container-text {
     border-radius: 5px;
     background-color: $color-white;
     padding: 5%;
@@ -136,37 +138,49 @@ ol, ul {
     align-content: center;
 }
 
-.navbar-nav {
-  background-color: $color-white;
-  text-align: center;
+.site-navbar .site-navigation .site-menu > li {
+    display: inline-block;
 }
-.navbar-nav > .login-link {
-  padding: 1%;
-  margin-right: 3%;
+.site-navigation {
+  margin: auto;
+}
+.center-logo {
+  margin: auto;
+}
+.site-navbar {
+  background: white;
+}
+// .navbar-nav {
+//   background-color: $color-white;
+//   text-align: center;
+// }
+.login-link {
+  padding: 10px;
   text-align: right;
+  background: white;
 }
-.navbar-nav > li {
-  display: inline-block;
-  float: none;
-}
-.navbar-nav > li > a {
-  float: left;
-  color: $color-light-gray-3;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-  font-size: 17px;
-}
-/* Change the color of links on hover */
-.navbar-nav > li > a:hover {
-  background-color: $color-red-secondary;
-  color: $color-white;
-}
+// .navbar-nav > li {
+//   display: inline-block;
+//   float: none;
+// }
+// .navbar-nav > li > a {
+//   float: left;
+//   color: $color-light-gray-3;
+//   text-align: center;
+//   padding: 14px;
+//   text-decoration: none;
+//   font-size: 17px;
+// }
+// /* Change the color of links on hover */
+// .navbar-nav > li > a:hover {
+//   background-color: $color-red-secondary;
+//   color: $color-white;
+// }
 
-.align-center {
-  text-align: center;
-}
+// .align-center {
+//   text-align: center;
+// }
 
-.align-content-right {
-  align-content: right;
-}
+// .align-content-right {
+//   align-content: right;
+// }
