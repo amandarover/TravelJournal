@@ -101,9 +101,9 @@ body {
 // }
 
 
-h1, h2, h3 {
-  padding-bottom: 3%;
-}
+// h1, h2, h3 {
+//   padding-bottom: 3%;
+// }
 
 // h1 {
 //   font-size: 25px;
@@ -147,9 +147,9 @@ h1, h2, h3 {
   margin: 5% 5%;
   margin-top: 5%;
   align-content: center;
-  // display: flex;
-  // flex-wrap: wrap;
-  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around
 }
 
 .show-days {
