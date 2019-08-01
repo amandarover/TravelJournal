@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Travel Journal</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'days', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class="login-link">
-  <% if current_user %>
-    Signed in as <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in com Google", "/auth/google_oauth2", id: "sign_in" %>
-  <% end %>
-</div>
-
-<div id="sticky-wrapper" class="sticky-wrapper">
-<header class="site-navbar py-md-4 js-sticky-header site-navbar-target" role="banner">
-      <div class="container">
+  <head>
+    <title>Travel Journal</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'days', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="login-link">
+      <% if current_user %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in com Google", "/auth/google_oauth2", id: "sign_in" %>
+      <% end %>
+    </div>
+    <div id="sticky-wrapper" class="sticky-wrapper">
+      <header class="site-navbar" role="banner">
         <div class="row">
           <a href="/" class="center-logo">
             <img src="/logo-medium-2.PNG" alt="Travel Journal" width=180px>
@@ -33,12 +31,10 @@
             </ul>
           </nav>
         </div>
-      </div>
-      
-    </header></div>
-
-  <div>
-  <%= yield %>
-  </div>
-</body>
+      </header>
+    </div>
+    <div>
+      <%= yield %>
+    </div>
+  </body>
 </html>

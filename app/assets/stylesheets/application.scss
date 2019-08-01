@@ -129,13 +129,15 @@ body {
 // }
 
 // /* Add a background color and some padding around the form */
-.container-text {
-  border-radius: 5px;
+.container {
   background-color: $color-white;
-  padding: 5%;
-  margin: 5% 5%;
-  margin-top: 5%;
+  // margin: 5% 5%;
+  border-radius: 5px;
   align-content: center;
+  margin-top: 50px;
+}
+.container-text {
+  padding: 5%;
   display: flex;
   flex-direction: row;
 }
@@ -151,10 +153,15 @@ body {
   flex-direction: column;
   justify-content: space-around
 }
-
 .show-days {
   padding: 5px;
 }
+.button-row {
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+}
+
 .site-navbar .site-navigation .site-menu > li {
     display: inline-block;
 }
