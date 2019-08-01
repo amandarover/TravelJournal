@@ -16,7 +16,7 @@ $color-white: white;
    License: none (public domain)
 */
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -101,9 +101,9 @@ body {
 // }
 
 
-// h1, h2, h3 {
-//   padding-bottom: 3%;
-// }
+h1, h2, h3 {
+  padding-bottom: 3%;
+}
 
 // h1 {
 //   font-size: 25px;
@@ -130,14 +130,31 @@ body {
 
 // /* Add a background color and some padding around the form */
 .container-text {
-    border-radius: 5px;
-    background-color: $color-white;
-    padding: 5%;
-    margin: 5% 5%;
-    margin-top: 5%;
-    align-content: center;
+  border-radius: 5px;
+  background-color: $color-white;
+  padding: 5%;
+  margin: 5% 5%;
+  margin-top: 5%;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+}
+  
+.container-text-column {
+  border-radius: 5px;
+  background-color: $color-white;
+  padding: 5%;
+  margin: 5% 5%;
+  margin-top: 5%;
+  align-content: center;
+  // display: flex;
+  // flex-wrap: wrap;
+  // flex-direction: column;
 }
 
+.show-days {
+  padding: 5px;
+}
 .site-navbar .site-navigation .site-menu > li {
     display: inline-block;
 }
