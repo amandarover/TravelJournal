@@ -18,13 +18,13 @@
       <div class="button-row">
         <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
           <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
-          <input name="add_on_last_day" value="true" style="display: none;">
-          <input type="submit" value="Criar dia no final" class="btn btn-primary"></a>
+          <input name="add_on_first_day" value="true" style="display: none;">
+          <input type="submit" value="Criar dia no início" class="btn btn-primary"></a>
         </form>
         <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
           <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
-          <input name="add_on_first_day" value="true" style="display: none;">
-          <input type="submit" value="Criar dia no início" class="btn btn-primary"></a>
+          <input name="add_on_last_day" value="true" style="display: none;">
+          <input type="submit" value="Criar dia no final" class="btn btn-primary"></a>
         </form>
       </div>
 
@@ -36,10 +36,10 @@
       <% end %>
       <div class="button-row">
         <% if @travel.days.count > 1 %>
-          <%= link_to 'Deletar o primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"),
+          <%= link_to 'Deletar primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"),
                   method: :delete,
                   class: "btn btn-primary" %>
-          <%= link_to 'Deletar o último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"),
+          <%= link_to 'Deletar último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"),
                   method: :delete,
                   class: "btn btn-primary" %>
         <% end %>
