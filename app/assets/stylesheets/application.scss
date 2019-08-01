@@ -84,13 +84,13 @@ body {
   padding: 5px;
 }
 .button-row {
-  padding: 8px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 .btn-primary {
-  // flex: 1;
+  margin: 8px;
+  flex: 1;
 }
 .site-navbar .site-navigation .site-menu > li {
   display: inline-block;
