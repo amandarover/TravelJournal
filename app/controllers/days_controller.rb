@@ -21,17 +21,23 @@ class DaysController < ApplicationController
 
   def add_one_day
     @travel = Travel.find(params[:id])
-    init_date = true if params[:add_on_first_day]
-    final_date = true if params[:add_on_last_day]
-    if final_date
+    where_to_add = params[:where_to_add]
+    raise invalid_add_day_error_message unless validate_has_at_least_one_day(@travel.days)
+
+    if where_to_add == 'add_on_last_day'
       @travel.final_date += 1.day
       @travel.save
       create_day(@travel, @travel.final_date)
-    elsif init_date
+    elsif where_to_add == 'add_on_first_day'
       @travel.init_date -= 1.day
       @travel.save
       create_day(@travel, @travel.init_date)
     end
+    redirect_to travel_path(@travel.id) # TODO: duplicated call
+  rescue StandardError => e
+    logger.info("TravelsController: Error to destroy travel day: #{e.message}")
+    @travel.errors.add(:base, invalid_delete_day_error_message)
+    # The eror printed on html will not work because I am doing a redirect
     redirect_to travel_path(@travel.id)
   end
 
@@ -108,6 +114,11 @@ class DaysController < ApplicationController
   def invalid_delete_day_error_message
     # TODO: create logger class with messages
     'This day can not be deleted'
+  end
+
+  def invalid_add_day_error_message
+    # TODO: create logger class with messages
+    'This day can not be added'
   end
 
   def validate_travel_date(init_date, final_date)

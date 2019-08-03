@@ -13,23 +13,15 @@
       </p>
       <p><%= @travel.description %></p>
       <h2>Dias</h2>
+        <div class="button-row">
+          <%= link_to 'Criar dia no início',
+            add_travel_day_path(@travel.id, where_to_add="add_on_first_day"),
+              class: "btn btn-primary" %>
 
-        <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
-          <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
-          <input name="add_on_first_day" value="true" style="display: none;">
-          <div class="button-row">
-          <%# A classe button-row está adicionando outros inputs (alem dos botões) como ítens, por isso na tela o botão esquerdo tem mais espaço que o direito %>
-          <input type="submit" value="Criar dia no início" class="btn btn-primary"></a>
-          <%# </div> %>
-        </form>
-        <form action="<%= add_travel_day_path(@travel.id) %>" accept-charset="UTF-8" method="post">
-          <input name="travel_id" value="<%= @travel.id %>" style="display: none;">
-          <input name="add_on_last_day" value="true" style="display: none;">
-          <%# <div class="button-row"> %>
-          <input type="submit" value="Criar dia no final" class="btn btn-primary"></a>
-          </div>
-        </form>
-
+          <%= link_to 'Criar dia no final',
+            add_travel_day_path(@travel.id, where_to_add="add_on_last_day"),
+              class: "btn btn-primary" %>
+        </div>
       <% @travel.days.order(:date).each do |day| %>
         <div class="show-days">
           <a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a>
