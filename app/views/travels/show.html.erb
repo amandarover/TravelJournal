@@ -31,7 +31,8 @@
             <% if day.events %>
               <% day.events.order(:starting_time).each do |event| %>
                 <a class="events-card" href="/travels/<%= @travel.id %>/days/<%= day.id %>/events/<%= event.id %>/edit">
-                  <%= event.name %>
+                  <div class="time-event-item"><%= event.starting_time %></div>
+                  <div class="name-event-item"><%= event.name %></div>
                 </a>
               <% end %>
             <% end %>

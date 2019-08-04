@@ -113,14 +113,25 @@ body {
 a.events-card {
   margin: 3px;
   padding: 3px;
-  flex-direction: column;
+  // flex-direction: column;
   color: black;
   text-decoration: none;
+  display: flex;
+  align-items: center;
   &:hover {
     border: 1px;
     border-radius: 7px;
     background: #dbdbdb;
   }
+}
+.time-event-item {
+  padding-right: 7px;
+  justify-content: left;
+  color: #686868
+}
+.name-event-item {
+  flex: 1;
+  justify-content: center;
 }
 .color-blue-primary {
   color: $color-blue-primary;
