@@ -25,11 +25,15 @@
       <div class="calendar">
         <% @travel.days.order(:date).each do |day| %>
           <div class="days-card">
-            <a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a>
-            <strong><%= day.events.count %></strong>
+            <a class="color-blue-primary font-weight-bold" href="/travels/<%= @travel.id %>/days/<%= day.id %>">
+              <%= day.date.strftime('%d/%m') %>
+              <span class="badge-pill badge-danger"><%= day.events.count %></span>
+            </a>
             <% if day.events %>
               <% day.events.order(:starting_time).each do |event| %>
-                <div class="events-card"><%= event.name %></div>
+                <a class="events-card" href="/travels/<%= @travel.id %>/days/<%= day.id %>/events/<%= event.id %>/edit">
+                  <%= event.name %>
+                </a>
               <% end %>
             <% end %>
           </div>

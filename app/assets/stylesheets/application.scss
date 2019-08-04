@@ -101,7 +101,7 @@ body {
 }
 .days-card {
   margin: 8px;
-  padding: 3px;
+  padding: 8px;
   border: 1px;
   border-color: #c0a0a5;
   border-style: dashed;
@@ -112,8 +112,17 @@ body {
 }
 .events-card {
   margin: 3px;
-  padding-top: 3px;
+  padding: 3px;
   flex-direction: column;
+  color: black;
+  &:hover { //Não está funcionando o hover
+    border: 1px;
+    border-radius: 3px;
+    border-color: #c0a0a5;
+  }
+}
+.color-blue-primary {
+  color: $color-blue-primary;
 }
 .site-navbar .site-navigation .site-menu > li {
   display: inline-block;
