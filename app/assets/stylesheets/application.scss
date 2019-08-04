@@ -22,40 +22,12 @@ body {
   line-height: 1; /* to reset the browser */
 }
 
-// /* Style inputs with type="text", select elements and textareas */
-// input[type=text], input[type=date], input[type=time], select, textarea {
-//   width: 100%; /* Full width */
-//   padding: 12px; /* Some padding */  
-//   border: 1px solid #ccc; /* Gray border */
-//   border-radius: 4px; /* Rounded borders */
-//   box-sizing: border-box; /* Make sure that padding and width stays in place */
-//   margin-top: 1%; /* Add a top margin */
-//   margin-bottom: 1%; /* Add a top margin */
-//   // margin-bottom: 16px; /* Bottom margin */
-// }
+// Colors
+.color-blue-primary {
+  color: $color-blue-primary;
+}
 
-// /* Mark input boxes that gets an error on validation: */
-// input.invalid {
-//   background-color: #ffdddd;
-// }
-
-// /* Style the submit button with a specific background color etc */
-// .button-primary {
-//   background-color: $color-red-primary;
-//   color: $color-white;
-//   padding: 12px 20px;
-//   border: none;
-//   border-radius: 4px;
-//   text-decoration: none;
-//   cursor: pointer;
-//   display: inline-block;
-// }
-// /* When moving the mouse over the submit button, add a darker green color */
-// .button-primary:hover {
-//   background-color: $color-red-secondary;
-// }
-
-// /* Add a background color and some padding around the form */
+// Aplication
 .container {
   background-color: $color-white;
   border-radius: 5px;
@@ -87,12 +59,13 @@ body {
 }
 .btn-primary {
   margin: 8px;
-  // flex: 2;
 }
 .title {
   text-align: center;
   font-size: 35px;
 }
+
+// Show calendar
 .calendar {
   display: flex;
   padding: 5px;
@@ -142,6 +115,7 @@ a.event-text {
 .no-event-text {
   flex: 10;
 }
+// navbar
 .site-navbar .site-navigation .site-menu > li {
   display: inline-block;
 }
@@ -158,33 +132,10 @@ a.event-text {
 //   background-color: $color-white;
 //   text-align: center;
 // }
+
+// Login
 .login-link {
   padding: 10px;
   text-align: right;
   background: white;
 }
-// .navbar-nav > li {
-//   display: inline-block;
-//   float: none;
-// }
-// .navbar-nav > li > a {
-//   float: left;
-//   color: $color-light-gray-3;
-//   text-align: center;
-//   padding: 14px;
-//   text-decoration: none;
-//   font-size: 17px;
-// }
-// /* Change the color of links on hover */
-// .navbar-nav > li > a:hover {
-//   background-color: $color-red-secondary;
-//   color: $color-white;
-// }
-
-// .align-center {
-//   text-align: center;
-// }
-
-// .align-content-right {
-//   align-content: right;
-// }
