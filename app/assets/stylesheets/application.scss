@@ -110,15 +110,16 @@ body {
   flex-direction: column;
   min-height: 100px;
 }
-.events-card {
+a.events-card {
   margin: 3px;
   padding: 3px;
   flex-direction: column;
   color: black;
-  &:hover { //Não está funcionando o hover
+  text-decoration: none;
+  &:hover {
     border: 1px;
     border-radius: 3px;
-    border-color: #c0a0a5;
+    background: #dbdbdb;
   }
 }
 .color-blue-primary {
