@@ -14,7 +14,6 @@
         <%= @travel.final_date.strftime('%d/%m') %>
       </p>
       <p><%= @travel.description %></p>
-      <h2>Dias</h2>
       <div class="button-row">
         <%= link_to 'Criar dia no início',
           add_travel_day_path(@travel.id, where_to_add="add_on_first_day"),
@@ -25,12 +24,12 @@
       </div>
       <div class="calendar">
         <% @travel.days.order(:date).each do |day| %>
-          <div class="show-days">
+          <div class="days-card">
             <a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a>
             <strong><%= day.events.count %></strong>
             <% if day.events %>
               <% day.events.order(:starting_time).each do |event| %>
-                <div class="show-days"><%= event.name %></div>
+                <div class="events-card"><%= event.name %></div>
               <% end %>
             <% end %>
           </div>
