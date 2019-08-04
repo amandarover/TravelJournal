@@ -15,15 +15,15 @@
       </p>
       <p><%= @travel.description %></p>
       <h2>Dias</h2>
-        <div class="button-row">
-          <%= link_to 'Criar dia no início',
-            add_travel_day_path(@travel.id, where_to_add="add_on_first_day"),
-              class: "btn btn-primary" %>
+      <div class="button-row">
+        <%= link_to 'Criar dia no início',
+          add_travel_day_path(@travel.id, where_to_add="add_on_first_day"),
+            class: "btn btn-primary" %>
 
-          <%= link_to 'Criar dia no final',
-            add_travel_day_path(@travel.id, where_to_add="add_on_last_day"),
-              class: "btn btn-primary" %>
-        </div>
+        <%= link_to 'Criar dia no final',
+          add_travel_day_path(@travel.id, where_to_add="add_on_last_day"),
+            class: "btn btn-primary" %>
+      </div>
       <% @travel.days.order(:date).each do |day| %>
         <div class="show-days">
           <a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a>
