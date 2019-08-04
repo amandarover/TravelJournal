@@ -4,8 +4,10 @@
   </head>
   <body>
     <div class="container">
-      <h1><%= @travel.name %></h1>
-      <p><%= @travel.destination %></p>
+      <div class="title">
+        <h1><%= @travel.name %></h1>
+      </div>
+      <p><strong>Destino: </strong><%= @travel.destination %></p>
       <p>
         <%= @travel.init_date.strftime('%d/%m') %>
         - 

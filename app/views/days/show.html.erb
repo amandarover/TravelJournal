@@ -1,15 +1,12 @@
 <div class="container">
 
-  <td>
-    <div class="h1-date">
-      <strong><%= @day.date.strftime('%A') %>, <%= @day.date.strftime('%d') %> de <%= @day.date.strftime('%B') %></strong>
-    </div>
-  </td>
+  <div class="title">
+    <strong><%= @day.date.strftime('%A') %>, <%= @day.date.strftime('%d') %> de <%= @day.date.strftime('%B') %></strong>
+  </div>
 
-  <td><%= link_to 'Criar evento',
-          new_travel_day_event_path(@day.travel.id, @day.id),
-            class: "button-primary" %>
-  </td>
+  <%= link_to 'Criar evento',
+        new_travel_day_event_path(@day.travel.id, @day.id),
+          class: "button-primary" %>
 
   <% @day.events.order(:starting_time).each do |event| %>
     <div class="card-container-text>
