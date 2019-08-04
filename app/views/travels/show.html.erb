@@ -19,25 +19,26 @@
         <%= link_to 'Criar dia no início',
           add_travel_day_path(@travel.id, where_to_add="add_on_first_day"),
             class: "btn btn-primary" %>
-
         <%= link_to 'Criar dia no final',
           add_travel_day_path(@travel.id, where_to_add="add_on_last_day"),
             class: "btn btn-primary" %>
       </div>
-      <% @travel.days.order(:date).each do |day| %>
-        <div class="show-days">
-          <a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a>
-          <strong><%= day.events.count %></strong>
-        </div>
-      <% end %>
+      <div class="calendar">
+        <% @travel.days.order(:date).each do |day| %>
+          <div class="show-days">
+            <a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a>
+            <strong><%= day.events.count %></strong>
+          </div>
+        <% end %>
+      </div>
       <div class="button-row">
         <% if @travel.days.count > 1 %>
           <%= link_to 'Deletar primeiro dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_init_date"),
-                  method: :delete,
-                  class: "btn btn-primary" %>
+                      method: :delete,
+                      class: "btn btn-primary" %>
           <%= link_to 'Deletar último dia', destroy_travel_day_path(@travel.id, where_to_destroy="destroy_final_date"),
-                  method: :delete,
-                  class: "btn btn-primary" %>
+                      method: :delete,
+                      class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>

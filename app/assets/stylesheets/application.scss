@@ -80,9 +80,6 @@ body {
   flex-direction: column;
   justify-content: space-around
 }
-.show-days {
-  padding: 5px;
-}
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -95,6 +92,12 @@ body {
 .title {
   text-align: center;
   font-size: 25px;
+}
+.calendar {
+  display: flex;
+  padding: 5px;
+  align-content: center;
+  flex-wrap: wrap;
 }
 .site-navbar .site-navigation .site-menu > li {
   display: inline-block;
