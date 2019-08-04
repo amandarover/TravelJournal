@@ -28,6 +28,11 @@
           <div class="show-days">
             <a href="/travels/<%= @travel.id %>/days/<%= day.id %>"><%= day.date.strftime('%d/%m') %></a>
             <strong><%= day.events.count %></strong>
+            <% if day.events %>
+              <% day.events.order(:starting_time).each do |event| %>
+                <div class="show-days"><%= event.name %></div>
+              <% end %>
+            <% end %>
           </div>
         <% end %>
       </div>
