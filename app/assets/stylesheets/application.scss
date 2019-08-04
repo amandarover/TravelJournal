@@ -96,8 +96,14 @@ body {
 .calendar {
   display: flex;
   padding: 5px;
-  align-content: center;
+  text-align: center;
   flex-wrap: wrap;
+}
+.show-days {
+  margin: 8px;
+  flex: 10%;
+  display: flex;
+  flex-direction: column;
 }
 .site-navbar .site-navigation .site-menu > li {
   display: inline-block;
