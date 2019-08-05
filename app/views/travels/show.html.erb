@@ -24,10 +24,10 @@
       <div class="calendar">
         <% @travel.days.order(:date).each do |day| %>
           <div class="days-card">
-            <a class="color-blue-primary font-weight-bold" href="/travels/<%= @travel.id %>/days/<%= day.id %>">
+            <h6><a class="color-blue-primary font-weight-bold" href="/travels/<%= @travel.id %>/days/<%= day.id %>">
               <%= day.date.strftime('%d/%m') %>
               <span class="badge-pill badge-danger"><%= day.events.count %></span>
-            </a>
+            </a></h6>
             <% if day.events.count > 0 %>
               <% day.events.order(:starting_time).each do |event| %>
                 <a class="event-item" href="/travels/<%= @travel.id %>/days/<%= day.id %>/events/<%= event.id %>/edit">
