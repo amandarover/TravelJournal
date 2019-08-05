@@ -1,8 +1,7 @@
 <body>
   <div class="container">
+    <div class="title">Criar nova Viagem:</div>
     <form id="new_travel" action="/travels" accept-charset="UTF-8" method="post">
-      <h1>Criar nova Viagem:</h1>
-
       <% if @travel.errors.any? %>
         <div id="error_explanation">
           <h2>
@@ -17,20 +16,37 @@
         </div>
       <% end %>
 
-      <p><label>Nome da viagem</label></p>
-        <input id="travel_title" type="text" name="travel[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
-      <p><label>Para onde você vai?</label></p>
-        <input id="travel_destination" type="text" name="travel[destination]" placeholder="Orlando" oninput="this.className = ''">
-
-      <p><label>Data de ínicio</label></p>
-        <input id="travel_init_date" type="date" name="travel[init_date]" oninput="this.className = ''">
-      <p><label>Data final</label></p>
-        <input id="travel_final_date" type="date" name="travel[final_date]" oninput="this.className = ''">
-
-      <p><label>Descrição</label></p>
-        <input id="travel_description" type="text" name="travel[description]" placeholder="Passando por Orlando e Nova York" oninput="this.className = ''">
-
-      <input type="submit" value="Criar" class="button-primary">
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Nome</label>
+        <div class="col-sm-10">
+          <input id="travel_title" type="text" class="form-control" name="travel[name]" placeholder="Viagem de formatura!">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Qual o destino?</label>
+        <div class="col-sm-10">
+          <input id="travel_destination" type="text" class="form-control" name="travel[destination]" placeholder="Orlando">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Data de início</label>
+        <div class="col-sm-10">
+          <input id="travel_init_date" type="date" class="form-control" name="travel[init_date]">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Data de termino</label>
+        <div class="col-sm-10">
+          <input id="travel_final_date" type="date" class="form-control" name="travel[final_date]">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Descrição</label>
+        <div class="col-sm-10">
+          <input id="travel_description" type="text" class="form-control" name="travel[description]" placeholder="15 dias em Orlando e 5 em Nova York">
+        </div>
+      </div>
+      <input type="submit" value="Criar viagem!" class="btn btn-primary">
     </form>
   </div>
 </body>
