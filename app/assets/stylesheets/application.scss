@@ -87,11 +87,8 @@ body {
   min-height: 150px;
   flex-basis: 200px;
 }
-.event-item {
-  flex: 1;
-}
-a.event-text {
-  flex: 1;
+a.event-item {
+  // flex: 1;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 2px;
@@ -113,7 +110,7 @@ a.event-text {
   flex: 10;
 }
 .no-events-card {
-  flex: 1;
+  flex: 10;
   display: flex;
   align-items: center;
   color: #686868;
@@ -121,6 +118,13 @@ a.event-text {
 .no-event-text {
   flex: 10;
 }
+.new-event-link {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 // navbar
 .site-navbar .site-navigation .site-menu > li {
   display: inline-block;

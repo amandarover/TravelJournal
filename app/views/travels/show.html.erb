@@ -30,22 +30,22 @@
             </a>
             <% if day.events.count > 0 %>
               <% day.events.order(:starting_time).each do |event| %>
-                <div class="event-item">
-                  <a class="event-text" href="/travels/<%= @travel.id %>/days/<%= day.id %>/events/<%= event.id %>/edit">
-                    <div class="time-event-item"><%= event.starting_time %></div>
-                    <div class="span-width"></div>
-                    <div class="name-event-item"><%= event.name %></div>
-                  </a>
-                </div>
+                <a class="event-item" href="/travels/<%= @travel.id %>/days/<%= day.id %>/events/<%= event.id %>/edit">
+                  <div class="time-event-item"><%= event.starting_time %></div>
+                  <div class="span-width"></div>
+                  <div class="name-event-item"><%= event.name %></div>
+                </a>
               <% end %>
             <% else %>
               <div class="no-events-card">
                 <div class="no-event-text">sem evento</div>
               </div>
             <% end %>
-            <%= link_to 'Criar evento',
-                  new_travel_day_event_path(@travel.id, day.id),
-                    class: "button-primary" %>
+            <div class="new-event-link">
+              <%= link_to 'Criar evento',
+                    new_travel_day_event_path(@travel.id, day.id),
+                      class: "button-primary" %>
+            </div>
           </div>
         <% end %>
       </div>
