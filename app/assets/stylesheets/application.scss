@@ -1,5 +1,6 @@
 @import 'bootstrap';
 @import 'navbar';
+@import 'calendar';
 
 $color-red-primary: #d73a31;
 $color-red-secondary: #bb001c;
@@ -67,63 +68,6 @@ body {
 }
 .span-width {
   min-width: 4px;
-}
-
-// Show calendar
-.calendar {
-  display: flex;
-  padding: 5px;
-  text-align: center;
-  flex-wrap: wrap;
-}
-.days-card {
-  margin: 8px;
-  padding: 8px;
-  border: 1px;
-  border-color: #c0a0a5;
-  border-style: dashed;
-  flex: 10%;
-  display: flex;
-  flex-direction: column;
-  min-height: 150px;
-  flex-basis: 200px;
-}
-a.event-item {
-  // flex: 1;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 2px;
-  color: black;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  &:hover {
-    border: 1px;
-    border-radius: 7px;
-    background: #dbdbdb;
-  }
-}
-.time-event-item {
-  flex: 1;
-  color: #686868
-}
-.name-event-item {
-  flex: 10;
-}
-.no-events-card {
-  flex: 10;
-  display: flex;
-  align-items: center;
-  color: #686868;
-}
-.no-event-text {
-  flex: 10;
-}
-.new-event-link {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
 }
 
 // navbar
