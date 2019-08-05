@@ -84,7 +84,8 @@ body {
   flex: 10%;
   display: flex;
   flex-direction: column;
-  min-height: 100px;
+  min-height: 150px;
+  flex-basis: 200px;
 }
 .event-item {
   flex: 1;
