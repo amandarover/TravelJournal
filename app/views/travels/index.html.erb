@@ -1,33 +1,31 @@
 <div class="container">
-  <table>
-    <tr>
-      <td><h1>Viagens</h1></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><a class="button-primary align-content-right" href="/travels/new">Nova Viagem</a></td>
-    </tr>
-
+  <div class="title">Viagens</div>
+  <div class="card-group ">
     <% @travels.each do |travel| %>
-      <tr>
-        <td><%= travel.name %></td>
-        <td><%= travel.destination %></td>
-        <td>
-          <%= travel.init_date.strftime('%d/%m') %> - <%= travel.final_date.strftime('%d/%m') %>
-        </td>
-        <td><%= link_to 'Ver',
-                travel_path(travel),
-                  class: "button-primary" %></td>
-        <td><%= link_to 'Editar',
-                edit_travel_path(travel),
-                  class: "button-primary" %></td>
-        <td><%= link_to 'Deletar',
-                 travel_path(travel),
-                   method: :delete,
-                   data: { confirm: 'Você tem certeza?' },
-                   class: "button-primary" %></td>
-      </tr>
+      <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+          <h5 class="card-title"><%= travel.name %></h5>
+          <p class="card-text"><%= travel.destination %></p>
+          <p class="card-text"><%= travel.init_date.strftime('%d/%m') %> - <%= travel.final_date.strftime('%d/%m') %></p>
+          <p class="card-text">
+            <%= link_to 'Ver',
+                    travel_path(travel),
+                      class: "button-primary" %>
+            <%= link_to 'Editar',
+                    edit_travel_path(travel),
+                      class: "button-primary" %>
+            <%= link_to 'Deletar',
+                      travel_path(travel),
+                        method: :delete,
+                        data: { confirm: 'Você tem certeza?' },
+                        class: "button-primary" %>
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
     <% end %>
-  </table>
+  </div>
+  <a class="btn btn-primary" href="/travels/new">Criar nova Viagem</a>
 </div>
