@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import 'navbar';
 
 $color-red-primary: #d73a31;
 $color-red-secondary: #bb001c;
@@ -126,18 +127,7 @@ a.event-item {
 }
 
 // navbar
-.site-navbar .site-navigation .site-menu > li {
-  display: inline-block;
-}
-.site-navigation {
-  margin: auto;
-}
-.center-logo {
-  margin: auto;
-}
-.site-navbar {
-  background: white;
-}
+
 // .navbar-nav {
 //   background-color: $color-white;
 //   text-align: center;
