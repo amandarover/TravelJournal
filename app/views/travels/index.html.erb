@@ -1,31 +1,30 @@
 <div class="container">
   <div class="title">Viagens</div>
-  <div class="card-group ">
-    <% @travels.each do |travel| %>
+  <% @travels.order(:init_date).each do |travel| %>
+    <div class="card-group">
       <div class="card shadow-sm p-3 mb-5 bg-white rounded">
         <div class="card-body">
           <h5 class="card-title"><%= travel.name %></h5>
           <p class="card-text"><%= travel.destination %></p>
-          <p class="card-text"><%= travel.init_date.strftime('%d/%m') %> - <%= travel.final_date.strftime('%d/%m') %></p>
-          <p class="card-text">
-            <%= link_to 'Ver',
-                    travel_path(travel),
-                      class: "button-primary" %>
-            <%= link_to 'Editar',
-                    edit_travel_path(travel),
-                      class: "button-primary" %>
-            <%= link_to 'Deletar',
-                      travel_path(travel),
-                        method: :delete,
-                        data: { confirm: 'Você tem certeza?' },
-                        class: "button-primary" %>
-          </p>
         </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= travel.init_date.strftime('%d/%m') %> - <%= travel.final_date.strftime('%d/%m') %></li>
+        </ul>
+        <div class="card-body">
+          <%= link_to 'Ver',
+                  travel_path(travel),
+                    class: "card-link" %>
+          <%= link_to 'Editar',
+                  edit_travel_path(travel),
+                    class: "card-link" %>
+          <%= link_to 'Deletar',
+                    travel_path(travel),
+                      method: :delete,
+                      data: { confirm: 'Você tem certeza?' },
+                      class: "card-link" %>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   <a class="btn btn-primary" href="/travels/new">Criar nova Viagem</a>
 </div>
