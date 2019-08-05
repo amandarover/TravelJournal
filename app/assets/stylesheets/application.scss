@@ -1,6 +1,7 @@
 @import 'bootstrap';
 @import 'navbar';
 @import 'calendar';
+@import 'sessions';
 
 $color-red-primary: #d73a31;
 $color-red-secondary: #bb001c;
@@ -13,6 +14,12 @@ $color-dark-gray: rgb(53, 53, 53);
 $color-white: white;
 // $color-blue-secondary: #0000FF;
 
+// Colors
+.color-blue-primary {
+  color: $color-blue-primary;
+}
+
+// Aplication
 ul {
 	padding: 0;
 }
@@ -23,13 +30,6 @@ body {
   background-size: cover;
   line-height: 1; /* to reset the browser */
 }
-
-// Colors
-.color-blue-primary {
-  color: $color-blue-primary;
-}
-
-// Aplication
 .container {
   background-color: $color-white;
   border-radius: 5px;
@@ -68,18 +68,4 @@ body {
 }
 .span-width {
   min-width: 4px;
-}
-
-// navbar
-
-// .navbar-nav {
-//   background-color: $color-white;
-//   text-align: center;
-// }
-
-// Login
-.login-link {
-  padding: 10px;
-  text-align: right;
-  background: white;
 }
