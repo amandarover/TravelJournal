@@ -1,28 +1,26 @@
 <div class="container">
   <div class="title">Viagens</div>
   <% @travels.order(:init_date).each do |travel| %>
-    <div class="card-group">
-      <div class="card shadow-sm p-3 mb-5 bg-white rounded">
-        <div class="card-body">
-          <h5 class="card-title"><%= travel.name %></h5>
-          <p class="card-text"><%= travel.destination %></p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= travel.init_date.strftime('%d/%m') %> - <%= travel.final_date.strftime('%d/%m') %></li>
-        </ul>
-        <div class="card-body">
-          <%= link_to 'Ver',
+    <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        <h5 class="card-title"><%= travel.name %></h5>
+        <p class="card-text"><%= travel.destination %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= travel.init_date.strftime('%d/%m') %> - <%= travel.final_date.strftime('%d/%m') %></li>
+      </ul>
+      <div class="card-body">
+        <%= link_to 'Ver',
+                travel_path(travel),
+                  class: "card-link" %>
+        <%= link_to 'Editar',
+                edit_travel_path(travel),
+                  class: "card-link" %>
+        <%= link_to 'Deletar',
                   travel_path(travel),
+                    method: :delete,
+                    data: { confirm: 'Você tem certeza?' },
                     class: "card-link" %>
-          <%= link_to 'Editar',
-                  edit_travel_path(travel),
-                    class: "card-link" %>
-          <%= link_to 'Deletar',
-                    travel_path(travel),
-                      method: :delete,
-                      data: { confirm: 'Você tem certeza?' },
-                      class: "card-link" %>
-        </div>
       </div>
     </div>
   <% end %>
