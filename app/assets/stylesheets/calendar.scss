@@ -1,3 +1,7 @@
+$color-light-gray: #686868;
+$color-light-gray-2: #dbdbdb;
+$color-dark-gray: #c0a0a5;
+
 .calendar {
   display: flex;
   padding: 5px;
@@ -8,7 +12,7 @@
   margin: 8px;
   padding: 8px;
   border: 1px;
-  border-color: #c0a0a5;
+  border-color: $color-dark-gray;
   border-style: dashed;
   flex: 10%;
   display: flex;
@@ -27,12 +31,12 @@ a.event-item {
   &:hover {
     border: 1px;
     border-radius: 7px;
-    background: #dbdbdb;
+    background: $color-light-gray-2;
   }
 }
 .time-event-item {
   flex: 1;
-  color: #686868
+  color: $color-light-gray
 }
 .name-event-item {
   flex: 10;
@@ -41,7 +45,7 @@ a.event-item {
   flex: 10;
   display: flex;
   align-items: center;
-  color: #686868;
+  color: $color-light-gray;
 }
 .no-event-text {
   flex: 10;

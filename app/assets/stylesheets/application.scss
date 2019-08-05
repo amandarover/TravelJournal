@@ -7,12 +7,8 @@ $color-red-primary: #d73a31;
 $color-red-secondary: #bb001c;
 // $color-green: #00FF00;
 $color-blue-primary: #135589;
-// $color-light-gray: rgb(211, 211, 211);
-$color-light-gray-2: #f8f9fa;
-$color-light-gray-3: rgba(0, 0, 0, 0.534);
-$color-dark-gray: rgb(53, 53, 53);
+$color-blue-secondary: #0000FF;
 $color-white: white;
-// $color-blue-secondary: #0000FF;
 
 // Colors
 .color-blue-primary {
@@ -33,34 +29,14 @@ body {
 .container {
   background-color: $color-white;
   border-radius: 5px;
-  align-content: center;
   margin-top: 50px;
   margin-bottom: 50px;
   padding: 20px;
-}
-.container-text {
-  padding: 5%;
-  display: flex;
-  flex-direction: row;
-}
-.container-text-column {
-  border-radius: 5px;
-  background-color: $color-white;
-  padding: 5%;
-  margin: 5% 5%;
-  margin-top: 5%;
-  align-content: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around
 }
 .button-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-.btn-primary {
-  margin: 8px;
 }
 .title {
   text-align: center;
