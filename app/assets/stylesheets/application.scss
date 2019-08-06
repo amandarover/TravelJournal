@@ -45,3 +45,8 @@ body {
 .span-width {
   min-width: 4px;
 }
+.button-rigth-side {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+}

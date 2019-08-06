@@ -1,5 +1,8 @@
 <div class="container">
   <div class="title">Viagens</div>
+  <div class="button-rigth-side">
+    <a class="btn btn-primary" href="/travels/new">Criar nova Viagem</a>
+  </div>
   <% @travels.order(:init_date).each do |travel| %>
     <div class="card shadow-sm p-3 mb-5 bg-white rounded">
       <div class="card-body">
@@ -24,5 +27,4 @@
       </div>
     </div>
   <% end %>
-  <a class="btn btn-primary" href="/travels/new">Criar nova Viagem</a>
 </div>
