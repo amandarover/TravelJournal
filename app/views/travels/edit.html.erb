@@ -3,22 +3,16 @@
     <form id="edit_travel" action="/travels/<%= @travel.id %>" accept-charset="UTF-8" method="post">
       <input type="hidden" name="_method" value="PUT">
       <h1>Editar Viagem:</h1>
-
       <% if @travel.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            Ops! Tivemos <%= pluralize(@travel.errors.count, "erro") %>.
-            Verifique os valores inseridos e tente novamente.
-          </h2>
-          <ul>
-            <% @travel.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
+        <div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Ops! Tivemos <%= pluralize(@travel.errors.count, "erro") %>.</h4>
+          <p>Verifique os valores inseridos e tente novamente.</p>
+          <hr>
+          <% @travel.errors.full_messages.each do |msg| %>
+            <p class="mb-0"><%= msg %></p>
+          <% end %>
         </div>
       <% end %>
-
-
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Nome</label>
         <div class="col-sm-10">
