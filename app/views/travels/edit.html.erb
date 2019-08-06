@@ -18,20 +18,38 @@
         </div>
       <% end %>
 
-      <p><label>Nome da viagem</label></p>
-        <input id="travel_title" type="text" value="<%= @travel.name %>" name="travel[name]" placeholder="Viagem de formatura!" oninput="this.className = ''">
-      <p><label>Para onde você vai?</label></p>
-        <input id="travel_destination" type="text" value="<%= @travel.destination %>" name="travel[destination]" placeholder="Orlando" oninput="this.className = ''">
 
-      <p><label>Data de ínicio</label></p>
-        <input id="travel_init_date" type="date" value="<%= @travel.init_date.strftime('%Y-%m-%d') %>" name="travel[init_date]" readonly oninput="this.className = ''">
-      <p><label>Data final</label></p>
-        <input id="travel_final_date" type="date" value="<%= @travel.final_date.strftime('%Y-%m-%d') %>" name="travel[final_date]" readonly oninput="this.className = ''">
-
-      <p><label>Descrição</label></p>
-        <input id="travel_description" type="text" value="<%= @travel.description %>" name="travel[description]" placeholder="Passando por Orlando e Nova York" oninput="this.className = ''">
-
-      <input type="submit" value="Editar" class="button-primary">
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Nome</label>
+        <div class="col-sm-10">
+          <input id="travel_title" type="text" class="form-control" value="<%= @travel.name %>" name="travel[name]" placeholder="Viagem de formatura!">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Qual o destino?</label>
+        <div class="col-sm-10">
+          <input id="travel_destination" type="text" class="form-control" value="<%= @travel.destination %>" name="travel[destination]" placeholder="Orlando">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Data de início</label>
+        <div class="col-sm-10">
+          <input id="travel_init_date" type="date" class="form-control" value="<%= @travel.init_date.strftime('%Y-%m-%d') %>" name="travel[init_date]" readonly>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Data de termino</label>
+        <div class="col-sm-10">
+          <input id="travel_final_date" type="date" class="form-control" value="<%= @travel.final_date.strftime('%Y-%m-%d') %>" name="travel[final_date]" readonly>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Descrição</label>
+        <div class="col-sm-10">
+          <input id="travel_description" type="text" class="form-control" value="<%= @travel.description %>" name="travel[description]" placeholder="Passando por Orlando e Nova York">
+        </div>
+      </div>
+      <input type="submit" value="Salvar" class="btn btn-primary">
     </form>
   </div>
 </body>
